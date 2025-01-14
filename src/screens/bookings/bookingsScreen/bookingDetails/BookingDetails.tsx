@@ -22,10 +22,10 @@ import Bookings from '../Bookings';
 // }
 const BookingDetails=({route}:any) => {
   const navigation: any = useNavigation();
-// const BookingDetails: FC<BookingDetailProps> = ({navigation, route}) => {
   const {bookingDetail} = route?.params;
   const {
     address,
+    location,
     artist,
     cancelreason,
     created_at,
@@ -38,102 +38,41 @@ const BookingDetails=({route}:any) => {
     total_price,
     travelcost,
     updated_at,
+    service
   } = bookingDetail;
-  console.log(bookingDetail, 'bookingDetail');
-  console.log(id, 'bookingDetail');
 
-  // const [artistCompletedApi, {data: artistCompletedData}] =
-  // useLazyBookingStatusQuery();
   const [bookingStatus, {isLoading,error}] = useBookingStatusMutation();
-    // const [artistAddServices, {isLoading,error}] = useArtistAddServicesMutation();
-  
-
 
   const BookingStatusApi = (status,navigationIndex) => {
     const formData = new FormData();
     formData.append('id', id);
     formData.append('status', status);
-
-// console.log("itemData?.id",itemData?.id)
-// console.log("addRecord",addRecord)
-// console.log("serviceImages",serviceImages)
-// console.log("paymentType",paymentType)
-// console.log("description",description)
-
 bookingStatus(formData)
   ?.unwrap()
   .then(response => {
-    console.log("try", response);
-
-    // Get the previous route in the navigation stack
-    // const routes = navigation.getState().routes;
-    // const previousRoute = routes[routes.length - 2];
     AppToast({ type: 'success', message: response?.status });
-    // navigation.goBack({
-    //   params: "response", // Pass the actual response
-    // });
-    // navigation.navigate(strings.user_Bottom_Stack, {
-    //   response, // Pass the actual response here
-    // });
     navigation.navigate("الحجوزات",navigationIndex)
-    // Set params on the previous screen
-    // navigation.setParams({
-    //   params: { response }, // Pass the response here
-    // });
-
-    // // Navigate back to the previous screen
-    // navigation.goBack();
-
-    // navigation.reset({
-    //   index: 0, // Reset to the first screen in the stack
-    //   routes: [
-    //     {
-    //       name: Bookings, // The name of your tab
-    //       params: { response: response }, // Pass the actual response here
-    //     },
-    //   ],
-    // });
-
-    // navigation.navigate('BottomStack, {
-    //   screen: Bookings,
-    //   params: { dataFromTwoScreen: 'Hello from twoScreen' },
-    // });
-
-    // navigation.navigate(Bookings,{ response: "response" });  // Update params for the current tab
-      // navigation.goBack();
   })
   .catch(error => {
     console.log("Error:", error);
     AppToast({ type: 'error', message: error });
   });
-
   };
 
   const handleCancel=()=>{
       Alert.alert(
-                              'Cancel Booking',
-                              'Are you sure to cancel the booking?',
-                              [
-                                { text: 'No' },
-                                {
-                                  text: 'Yes',
-                                  onPress: () =>
-                                    BookingStatusApi('Cancel',3)
-                                },
-                              ]
-                            );
-        };
-
-  const GetArtistCompletedBookingAPI = () => {
-    artistCompletedApi('')
-      .unwrap()
-      ?.then(res => {
-        console.log(res, 'artist complete api result');
-      })
-      .catch(error => {
-        console.log(error, 'artist complete api catch');
-      });
-  };
+        'Cancel Booking',
+        'Are you sure to cancel the booking?',
+          [
+            { text: 'No' },
+            {
+            text: 'Yes',
+            onPress: () =>
+            BookingStatusApi('Cancel',3)
+            },
+          ]
+        );
+      };
 
   //Main Return
   return (
@@ -159,7 +98,7 @@ bookingStatus(formData)
           <Image source={Images.send} resizeMode="contain" />
           <TextWithImage
             path={Images.running}
-            text={strings.threeKm}
+            text={location}
             textColor={Colors.black}
             size={14}
             alignSelf={'flex-end'}
@@ -176,7 +115,7 @@ bookingStatus(formData)
         />
         <View style={{marginVertical: 10}}>
           <CustomText
-            text={strings.buzz_cut}
+            text={service?.description}
             size={14}
             color={Colors.lightGrey}
             style={{textAlign: 'left'}}
@@ -195,11 +134,9 @@ bookingStatus(formData)
           status == 'Active'?
           <FooterTwoButton
             onPressRight={() =>
-              // console.log("accept")
-              BookingStatusApi('Active',1)
-              // navigation.navigate(strings.bookingDetails_screen, {cancle: true})
+              BookingStatusApi('Ongoing',1)
             }
-            onPressLeft={navigation.goBack()}
+            onPressLeft={()=>navigation.goBack()}
             marginTop={screenHeight / 16}
             marginBottom={2}
             textRight={'Accept'}
@@ -209,23 +146,19 @@ bookingStatus(formData)
           <FooterTwoButton
           onPressRight={() =>
             navigation.navigate(
-              // route?.params?.cancle
-                // ? strings.bookingAccepted
-                // : 
                 strings.getDirection,
                 {param:bookingDetail},
             )
-            // console.log("start now")
 
           }
           onPressLeft={()=>{
             handleCancel()
           }}
           marginTop={screenHeight / 16}
-          textRight="Start Now"
-          // textRight={'ابدأ الآن'}
-          textLeft="Cancel Reservation"
-          // textLeft={'إلغاء الحجز'}
+          // textRight="Start Now"
+          textRight={'ابدأ الآن'}
+          // textLeft="Cancel Reservation"
+          textLeft={'إلغاء الحجز'}
         />
         }
 
