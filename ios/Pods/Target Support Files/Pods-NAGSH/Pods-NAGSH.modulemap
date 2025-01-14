@@ -1,0 +1,6 @@
+module Pods_NAGSH {
+  umbrella header "Pods-NAGSH-umbrella.h"
+
+  export *
+  module * { export * }
+}

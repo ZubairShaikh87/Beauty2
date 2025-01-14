@@ -1,0 +1,18 @@
+export const Colors = {
+  primary: '#18005A',
+  white: '#fff',
+  black: '#000',
+  lightGrey: '#797979',
+  blue: 'rgba(24, 0, 90, 0.3)',
+  grey100: '#E0E0E0',
+  green: '#57B83F',
+  walletText: '#262626',
+  textColor: '#1AC23E',
+  textColorRed: '#C2191A',
+  black100: '#262626',
+  lightWhite: '#F2F2F2',
+  grey200: '#E8E5EF',
+  grey10: '#f1f2f4',
+  yellow: '#E7B75A',
+  lightpink: '#f3f2f7',
+};

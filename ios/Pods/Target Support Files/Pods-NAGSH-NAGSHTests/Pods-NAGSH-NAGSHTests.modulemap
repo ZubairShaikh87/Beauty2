@@ -1,0 +1,6 @@
+module Pods_NAGSH_NAGSHTests {
+  umbrella header "Pods-NAGSH-NAGSHTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
