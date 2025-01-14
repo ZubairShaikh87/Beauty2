@@ -12,9 +12,6 @@ import {useSelector} from 'react-redux';
 import {getUserType} from '../../../Redux/Reducers/UserTypeSlice';
 import {
   useLazyArtistBookingsQuery,
-  useLazyArtistCancelBookingsQuery,
-  useLazyArtistCompleteBookingsQuery,
-  useLazyArtistUpcomingBookingsQuery,
   useLazyCustomerBookingsQuery,
   useLazyCustomerCancelBookingsQuery,
   useLazyCustomerCompleteBookingsQuery,
@@ -23,30 +20,22 @@ import {
 import { useFocusEffect } from '@react-navigation/native';
 
 const Bookings = ({navigation,route}:any) => {
-  console.log("route book",route?.params)
+  // const [statusBool, setStatusBool] = useState(false)
   const indexValue=route?.params;
-  console.log("index value",indexValue)
-  // useEffect(() => {
-  //   if (route.params?.response) {
-  //     console.log('Received params:', params);
-  //   }
-  // }, [route.params?.response]);
-  const [refresh, setRefresh] = useState(false)
   useFocusEffect(
-    useCallback(() => {
-      console.log("firstfirstr")
-      // This will run whenever this screen comes into focus
-      if (route) {
-        console.log('Response received in Bookings:', route);
-  
-        // Handle the response, maybe update state to trigger a re-render
-        setRefresh(true);
-  
-        // Clear the params to avoid re-triggering
-        // navigation.setParams({ response: null });
-      }
-    }, [route, navigation])
+    React.useCallback(() => {
+      // Fetch updated data here
+      console.log("indexValue b",indexValue)
+      setIndex(indexValue)
+    }, [indexValue])
   );
+  useEffect(() => {
+    setIndex(indexValue)
+  }, [indexValue])
+  
+  
+  
+console.log("index value",indexValue)
   //API initialization
   const [customerUpcomingApi, {data: customerUpcomingData}] =
     useLazyCustomerUpcomingBookingsQuery();
@@ -54,26 +43,15 @@ const Bookings = ({navigation,route}:any) => {
     useLazyCustomerCompleteBookingsQuery();
   const [customerCancelApi, {data: customerCancelData}] =
     useLazyCustomerCancelBookingsQuery();
-  const [customerBookingApi, {data: customerBookingData}] =
-    useLazyCustomerBookingsQuery();
 
-  const [artistOngoingApi, {data: artistOngoingData}] =
-    useLazyArtistUpcomingBookingsQuery();
-  const [artistCompletedApi, {data: artistCompletedData}] =
-    useLazyArtistCompleteBookingsQuery();
-  const [artistCancelApi, {data: artistCancelData}] =
-    useLazyArtistCancelBookingsQuery();
-  const [artistBookingApi, {data: artistBookingData}] =
+    const [artistBookingApi, {data: artistBookingData}] =
     useLazyArtistBookingsQuery();
   //Store
   const userType = useSelector(getUserType);
   //Consts
   const isBusiness = userType === 'business' ? true : false;
-  console.log("isBusiness",isBusiness)
   // States
   const [index, setIndex] = React.useState(0);
-  console.log("indexValue condition",indexValue !=undefined?indexValue:0)
-  console.log("indexValue condition1",indexValue)
   const [routes, setRoutes] = useState([
     { key: 'first', title: strings.upcoming },
     { key: 'second', title: strings.onGoing },
@@ -81,10 +59,7 @@ const Bookings = ({navigation,route}:any) => {
     { key: 'fourth', title: strings.cancle },
   ]);
   useEffect(() => {
-    console.log("IndexValue changed:", indexValue);
-
     setIndex(indexValue !== undefined ? indexValue : 0);
-
     const updatedRoutes = [
       { key: 'first', title: strings.upcoming },
       { key: 'second', title: strings.onGoing },
@@ -94,32 +69,17 @@ const Bookings = ({navigation,route}:any) => {
 
     setRoutes(updatedRoutes);
   }, [indexValue]);
-  // const [customerRoutes] = React.useState([
-  //   {key: 'first', title: strings.upcoming},
-  //   {key: 'second', title: strings.completed},
-  //   {key: 'third', title: strings.cancle},
-  // ]);
-
   /// APIs
   useEffect(() => {
-    console.log("first",index)
-    console.log("second2",indexValue)
     // Check Type and HIT APIs
     if (isBusiness) {
       index === 0
-        // ? GetArtistUpcomingBookingAPI()
         ? GetArtistBookingAPI()
         : index === 1
-        // ? GetArtistOngoingBookingAPI()
         ? GetArtistBookingAPI()
-        // ? GetArtistCompletedBookingAPI()
         : index === 2
-        // ? GetArtistBookingAPI()
         ? GetArtistBookingAPI()
-        // ? GetArtistCompletedBookingAPI()
-        // ? GetArtistOngoingBookingAPI()
         : GetArtistBookingAPI();
-        // : GetArtistCancelBookingAPI();
     } else {
       index === 0
         ? GetCustomerUpcomingBookingAPI()
@@ -127,50 +87,9 @@ const Bookings = ({navigation,route}:any) => {
         ? GetCustomerCompeletedBookingAPI()
         : GetCustomerCancelBookingAPI();
     }
-  }, [index,indexValue]);
-
-  //Getting All Data but revert for now
-  const fetchArtistBookingData = async () => {
-    try {
-      const [
-        upcomingResponse,
-        completedResponse,
-        cancelResponse,
-        bookingResponse,
-      ] = await Promise.all([
-        customerUpcomingApi('').unwrap(),
-        customerCompletedApi('').unwrap(),
-        customerCancelApi('').unwrap(),
-        customerBookingApi('')?.unwrap(),
-      ]);
-    } catch (error) {}
-  };
-  ///
-
-  /// API functions
-  //API Functions
+  }, [index]);
 
   // Artist-Business APIs below
-  const GetArtistOngoingBookingAPI = () => {
-    artistOngoingApi('')
-      .unwrap()
-      ?.then(res => {
-        console.log(res, 'artist ongoing result');
-      })
-      .catch(error => {
-        console.log(error, 'artist Ongoing catch');
-      });
-  };
-  const GetArtistCompletedBookingAPI = () => {
-    artistCompletedApi('')
-      .unwrap()
-      ?.then(res => {
-        console.log(res, 'artist complete api result');
-      })
-      .catch(error => {
-        console.log(error, 'artist complete api catch');
-      });
-  };
   // upcoming
   const GetArtistBookingAPI = () => {
     artistBookingApi('')
@@ -180,16 +99,6 @@ const Bookings = ({navigation,route}:any) => {
       })
       .catch(error => {
         console.log(error, 'GetArtistBookingAPI catch');
-      });
-  };
-  const GetArtistCancelBookingAPI = () => {
-    artistCancelApi('')
-      .unwrap()
-      ?.then(res => {
-        console.log(res, 'artist cancel api resutl');
-      })
-      .catch(error => {
-        console.log(error, 'artist cancel api catch');
       });
   };
   ///////////////////////////////////////////
@@ -224,16 +133,6 @@ const Bookings = ({navigation,route}:any) => {
         console.log(error, 'cancel api catch');
       });
   };
-  const GetCustomerBookingAPI = () => {
-    customerBookingApi('')
-      .unwrap()
-      ?.then(res => {
-        console.log(res, 'RESDFD');
-      })
-      .catch(error => {
-        console.log(error, 'sdjfkdsjfk');
-      });
-  };
   ///////////////////////////////////////////////
   // UI functions below
   const renderCustomerScene = SceneMap({
@@ -247,9 +146,6 @@ const Bookings = ({navigation,route}:any) => {
     second: () => <Ongoing data={artistBookingData?.data} />,
     third: () => <Completed data={artistBookingData?.data} />,
     fourth: () => <Cancle data={artistBookingData?.data} />,
-    // second: () => <Ongoing data={artistOngoingData?.data} />,
-    // third: () => <Completed data={artistCompletedData?.data} />,
-    // fourth: () => <Cancle data={artistCancelData?.data} />,
   });
   const renderTabBar = (props: any) => (
     <TabBar
@@ -260,7 +156,6 @@ const Bookings = ({navigation,route}:any) => {
     />
   );
   // User TYPE RENDERING CONDITIONS
-  // const Routes = isBusiness ? artistRoutes : customerRoutes;
   const renderScene = isBusiness ? renderArtistScene : renderCustomerScene;
 
   // MAIN RETURN
