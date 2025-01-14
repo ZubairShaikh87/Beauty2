@@ -9,52 +9,52 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:3:5-67
-11-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:3:22-64
+11-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:3:5-67
+11-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:3:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:4:5-79
-12-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:4:22-76
+12-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:4:5-79
+12-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:4:22-76
 13    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-13-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:5:5-75
-13-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:5:22-73
+13-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:5:5-75
+13-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:5:22-73
 14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-14-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:6:5-79
-14-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:6:22-77
+14-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:6:5-79
+14-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:6:22-77
 15    <uses-permission
-15-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:7:5-80
+15-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:7:5-80
 16        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-16-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:7:22-78
+16-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:7:22-78
 17        android:maxSdkVersion="28" />
-17-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-35
+17-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-35
 18    <uses-permission android:name="android.permission.INTERNET" />
-18-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:3:5-67
-18-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:3:22-64
+18-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:3:5-67
+18-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:3:22-64
 19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-19-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:9:5-79
-19-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:9:22-76
+19-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:9:5-79
+19-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:9:22-76
 20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-20-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:10:5-81
-20-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:10:22-78
+20-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:10:5-81
+20-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:10:22-78
 21    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-21-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:11:5-85
-21-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:11:22-82
+21-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:11:5-85
+21-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:11:22-82
 22    <uses-permission
-22-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:12:5-120
+22-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:12:5-120
 23        android:name="android.permission.BLUETOOTH_SCAN"
-23-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:12:22-70
+23-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:12:22-70
 24        android:usesPermissionFlags="neverForLocation" />
-24-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:12:71-117
+24-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:12:71-117
 25    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-25-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:13:5-76
-25-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:13:22-73
+25-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:13:5-76
+25-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:13:22-73
 26
 27    <queries>
-27-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
+27-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:15
 28        <intent>
-28-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
+28-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:18
 29            <action android:name="android.media.action.IMAGE_CAPTURE" />
-29-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
-29-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
+29-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-73
+29-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:21-70
 30        </intent>
 31        <!-- Needs to be explicitly declared on Android R+ -->
 32        <package android:name="com.google.android.apps.maps" />
@@ -101,86 +101,86 @@
 53-->[androidx.core:core:1.9.0] C:\Users\a\.gradle\caches\transforms-3\d082e34b8e22673a4af20f2c25151681\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 54
 55    <application
-55-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:15:5-40:19
+55-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:15:5-40:19
 56        android:name="com.nagsh.MainApplication"
-56-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:16:7-38
+56-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:16:7-38
 57        android:allowBackup="false"
-57-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:20:7-34
+57-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:20:7-34
 58        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 58-->[androidx.core:core:1.9.0] C:\Users\a\.gradle\caches\transforms-3\d082e34b8e22673a4af20f2c25151681\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 59        android:debuggable="true"
 60        android:extractNativeLibs="true"
 61        android:icon="@mipmap/ic_launcher"
-61-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:18:7-41
+61-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:18:7-41
 62        android:label="@string/app_name"
-62-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:17:7-39
+62-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:17:7-39
 63        android:roundIcon="@mipmap/ic_launcher_round"
-63-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:19:7-52
+63-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:19:7-52
 64        android:supportsRtl="true"
-64-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:21:7-33
+64-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:21:7-33
 65        android:theme="@style/AppTheme"
-65-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:23:7-38
+65-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:23:7-38
 66        android:usesCleartextTraffic="true" >
-66-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:22:7-42
+66-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:22:7-42
 67        <activity
-67-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:24:7-36:18
+67-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:24:7-36:18
 68            android:name="com.nagsh.MainActivity"
-68-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:25:9-37
+68-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:25:9-37
 69            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-69-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:27:9-118
+69-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:27:9-118
 70            android:exported="true"
-70-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:31:9-32
+70-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:31:9-32
 71            android:label="@string/app_name"
-71-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:26:9-41
+71-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:26:9-41
 72            android:launchMode="singleTask"
-72-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:28:9-40
+72-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:28:9-40
 73            android:usesCleartextTraffic="true"
-73-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:29:9-44
+73-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:29:9-44
 74            android:windowSoftInputMode="adjustResize" >
-74-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:30:9-51
+74-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:30:9-51
 75            <intent-filter>
-75-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:32:9-35:25
+75-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:32:9-35:25
 76                <action android:name="android.intent.action.MAIN" />
-76-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:33:13-65
-76-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:33:21-62
+76-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:33:13-65
+76-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:33:21-62
 77
 78                <category android:name="android.intent.category.LAUNCHER" />
-78-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:34:13-73
-78-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:34:23-70
+78-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:34:13-73
+78-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:34:23-70
 79            </intent-filter>
 80        </activity>
 81
 82        <meta-data
-82-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:37:8-39:63
+82-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:37:8-39:63
 83            android:name="com.google.android.geo.API_KEY"
-83-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:38:6-51
+83-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:38:6-51
 84            android:value="AIzaSyD8VWu4IhYsj3ghntxcOO_tGWAU7Zs0Tn8" />
-84-->E:\ReactNativeCli\Beauty App\Beauty App\android\app\src\main\AndroidManifest.xml:39:6-61
+84-->E:\ReactNativeCli\Beauty2\android\app\src\main\AndroidManifest.xml:39:6-61
 85
 86        <provider
-86-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:9-26:20
+86-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:9-26:20
 87            android:name="com.reactnative.ivpusic.imagepicker.IvpusicImagePickerFileProvider"
-87-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-94
+87-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-94
 88            android:authorities="com.nagsh.provider"
-88-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-60
+88-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-60
 89            android:exported="false"
-89-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
+89-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
 90            android:grantUriPermissions="true" >
-90-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-47
+90-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-47
 91            <meta-data
-91-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:78
+91-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:78
 92                android:name="android.support.FILE_PROVIDER_PATHS"
-92-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-67
+92-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-67
 93                android:resource="@xml/ivpusic_imagepicker_provider_paths" />
-93-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:17-75
+93-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:17-75
 94        </provider>
 95
 96        <activity
-96-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-30:72
+96-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-30:72
 97            android:name="com.yalantis.ucrop.UCropActivity"
-97-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-60
+97-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-60
 98            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-98-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty App\Beauty App\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-69
+98-->[:react-native-image-crop-picker] E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-69
 99        <activity
 99-->[com.facebook.react:react-android:0.73.4] C:\Users\a\.gradle\caches\transforms-3\4f3e53542943e0a5fe57b6de57b285a4\transformed\jetified-react-android-0.73.4-debug\AndroidManifest.xml:19:9-21:40
 100            android:name="com.facebook.react.devsupport.DevSettingsActivity"
