@@ -22,20 +22,7 @@ import { useFocusEffect } from '@react-navigation/native';
 const Bookings = ({navigation,route}:any) => {
   // const [statusBool, setStatusBool] = useState(false)
   const indexValue=route?.params;
-  useFocusEffect(
-    React.useCallback(() => {
-      // Fetch updated data here
-      console.log("indexValue b",indexValue)
-      setIndex(indexValue)
-    }, [indexValue])
-  );
-  useEffect(() => {
-    setIndex(indexValue)
-  }, [indexValue])
-  
-  
-  
-console.log("index value",indexValue)
+  console.log("route date",route)
   //API initialization
   const [customerUpcomingApi, {data: customerUpcomingData}] =
     useLazyCustomerUpcomingBookingsQuery();
@@ -51,7 +38,20 @@ console.log("index value",indexValue)
   //Consts
   const isBusiness = userType === 'business' ? true : false;
   // States
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = React.useState(indexValue?indexValue:0);
+  console.log("indexValue",indexValue);
+  console.log("index",index);
+useEffect(() => {
+  
+}, [index])
+
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     // Fetch updated data here
+  //     console.log("indexValue b",indexValue)
+  //     setIndex(indexValue)
+  //   }, [indexValue])
+  // );
   const [routes, setRoutes] = useState([
     { key: 'first', title: strings.upcoming },
     { key: 'second', title: strings.onGoing },

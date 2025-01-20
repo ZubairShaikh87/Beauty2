@@ -49,7 +49,8 @@ bookingStatus(formData)
   ?.unwrap()
   .then(response => {
     AppToast({ type: 'success', message: response?.status });
-    navigation.navigate("الحجوزات",navigationIndex)
+    navigation.navigate("dayoff")
+    // navigation.navigate("الحجوزات",{indexValue:navigationIndex,dateValue:Date.now()})
   })
   .catch(error => {
     console.log("Error:", error);
