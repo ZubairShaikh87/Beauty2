@@ -52,8 +52,7 @@ const Home = () => {
   const [value1, setValue1] = useState(strings.thismonth);
   const [items1, setItems1] = useState([
     {label: strings.thismonth, value: strings.thismonth},
-    {label: 'Banana', value: 'banana'},
-    {label: 'Pear', value: 'pear'},
+    {label: 'الجميع', value: 'all'},
   ]);
 
   useEffect(() => {
@@ -80,7 +79,7 @@ const Home = () => {
     artistHomeDataApi('')
       ?.unwrap()
       ?.then(response => {
-        // console.log(response, 'GetArtistHomeData');
+        console.log(response, 'GetArtistHomeData');
         setHomeData(response);
         // AppToast({
         //   type: 'success',
@@ -239,7 +238,7 @@ const Home = () => {
             style={{width: 95}}
             color={Colors.primary}
             fontWeight="bold"
-            text={homeData?.Earning + ' ' + strings.sr}
+            text={value1=="This Month"? homeData?.Thismonth + ' ' + strings.sr:homeData?.Allmonths + ' ' + strings.sr}
           />
           <View>
             <CustomText
