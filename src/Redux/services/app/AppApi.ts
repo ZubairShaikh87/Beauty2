@@ -204,7 +204,6 @@ const getArtistsHomeData = (id: string) => {
   };
 };
 const deleteServiceType = (id: string) => {
-  console.log("id zzz",id)
   return {
     url: `${Endpoints.deleteService}${id}`,
     method: apiMethods.get,
@@ -332,6 +331,36 @@ const getArtistAvailablity = body => {
   };
 };
 
+// day off
+const dayOffAdd = (body: any) => {
+  return {
+    url: Endpoints.dayOff,
+    method: apiMethods.post,
+    body,
+    // headers: {
+    //   'Content-type': 'application/json',
+    // },
+  };
+};
+const getDayOff = () => {
+  return {
+    url: Endpoints.getDayOff,
+    method: apiMethods.get,
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+};
+const deleteDayOff = (id: string) => {
+  return {
+    url: `${Endpoints.deleteDayOff}${id}`,
+    method: apiMethods.get,
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+};
+
 ////
 export const AppApi = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -440,6 +469,15 @@ export const AppApi = baseApi.injectEndpoints({
     artistPendingEarnings: build.query({
       query: artistPendingEarnings,
     }),
+    dayOffAdd: build.mutation({
+      query: dayOffAdd,
+    }),
+    getDayOff: build.query({
+      query: getDayOff,
+    }),
+    deleteDayOff: build.query({
+      query: deleteDayOff,
+    }),
   }),
 });
 
@@ -483,4 +521,8 @@ export const {
   useLazyArtistEarningsQuery,
   useLazyArtistPendingEarningsQuery,
   useLazyGetArtistAvailablityQuery,
+  useDayOffAddMutation,
+  useLazyGetDayOffQuery,
+  useLazyDeleteDayOffQuery
+
 } = AppApi;

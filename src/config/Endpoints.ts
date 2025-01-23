@@ -46,6 +46,10 @@ export const Endpoints = {
   // deleteService: 'Services/Detail/Delete/',
   artistEarning: 'Artist/Earning',
   artistPendingEarning: 'Artist/Earning/Pending',
+  // dayoff
+  dayOff:'Offdays/Store',
+  getDayOff:'Offdays/Get',
+  deleteDayOff:'Offdays/Delete/',
 
   //Category
   listCategory: 'list_category',
