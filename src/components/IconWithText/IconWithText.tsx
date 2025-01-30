@@ -1,12 +1,14 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {FC} from 'react';
 import CustomText from '../text/CustomText';
 import {Colors} from '../../utils/colors/colors';
 import {IconWithTextPropsTypes} from './types';
 
-const IconWithText: FC<IconWithTextPropsTypes> = ({path, text}) => {
+const IconWithText: FC<IconWithTextPropsTypes> = ({path, text,onpress}) => {
   return (
-    <View style={styles.flexContainer}>
+    <TouchableOpacity
+      onPress={onpress}
+      style={styles.flexContainer}>
       <Image source={path} />
       <CustomText
         size={12}
@@ -14,7 +16,7 @@ const IconWithText: FC<IconWithTextPropsTypes> = ({path, text}) => {
         style={{marginLeft: 10}}
         color={Colors.lightGrey}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 

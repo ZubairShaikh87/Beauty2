@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   View,
   Animated,
+  Linking
 } from "react-native"
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import { Colors } from "../../../utils/colors/colors"
@@ -47,6 +48,18 @@ import ImagePicker from "react-native-image-crop-picker"
 import DateTimePickerModal from "react-native-modal-datetime-picker"
 import Services from "../../myServices/myServiceScreen/Services"
 const ArtistDetails = () => {
+  const openSocialMedia = async (appUrl, webUrl) => {
+    try {
+      const supported = await Linking.canOpenURL(appUrl);
+      if (supported) {
+        await Linking.openURL(appUrl);
+      } else {
+        await Linking.openURL(webUrl);
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Unable to open the link');
+    }
+  };
   //API initialization
   const [getArtistProfile, { data: artistProfileData }] = useLazyGetArtistsProfileQuery()
   // console.log("sdfkjdsjf11231231021",artistProfileData, 'sdfkjdsjf11231231021');
@@ -572,11 +585,11 @@ const ArtistDetails = () => {
         }}
       />
       <View style={styles.divider2} />
-      <IconWithText path={Images.facbook} text={artistProfileData?.sociallinks[0]?.facebook} />
-      <IconWithText path={Images.insta} text={artistProfileData?.sociallinks[0]?.instagram} />
-      <IconWithText path={Images.dribbble} text={artistProfileData?.sociallinks[0]?.otherurl} />
-      <IconWithText path={Images.LinkedIn} text={artistProfileData?.sociallinks[0]?.linkedin} />
-      <IconWithText path={Images.twitterS} text={artistProfileData?.sociallinks[0]?.twiter} />
+      <IconWithText path={Images.facbook} text={artistProfileData?.sociallinks[0]?.facebook} onpress={()=>openSocialMedia('instagram://', artistProfileData?.sociallinks[0]?.facebook)} />
+      <IconWithText path={Images.insta} text={artistProfileData?.sociallinks[0]?.instagram} onpress={()=>openSocialMedia('instagram://', artistProfileData?.sociallinks[0]?.instagram)}/>
+      <IconWithText path={Images.dribbble} text={artistProfileData?.sociallinks[0]?.otherurl} onpress={()=>openSocialMedia('google://', artistProfileData?.sociallinks[0]?.otherurl)}/>
+      <IconWithText path={Images.LinkedIn} text={artistProfileData?.sociallinks[0]?.linkedin} onpress={()=>openSocialMedia('linkedin://', artistProfileData?.sociallinks[0]?.linkedin)}/>
+      <IconWithText path={Images.twitterS} text={artistProfileData?.sociallinks[0]?.twiter} onpress={()=>openSocialMedia('twitter://', artistProfileData?.sociallinks[0]?.twiter)}/>
       <TextImageText
         onPress={() => addressSheetRef?.current?.open()}
         withoutImageText={strings.contactUs}
@@ -681,14 +694,18 @@ const ArtistDetails = () => {
           <Animated.View style={[styles.profileSection, { transform: [{ translateY: profileTranslateY }] }]}>
             
             <View style={styles.iconMainContainer}>
-              <View style={[styles.artistContainer,{width:100}]}>
+              <TouchableOpacity
+                onPress={()=>{openSocialMedia('instagram://', artistProfileData?.sociallinks[0]?.instagram)}}
+                style={[styles.artistContainer]}>
                 <CustomText
                   color={Colors.lightGrey}
                   size={14}
-                  text={artistProfileData?.sociallinks[0]?.instagram}
+                  text={artistProfileData?.sociallinks[0]?.instagram?.split('/').pop()?.includes('instagram.com') 
+                    ? '@instagram.com' 
+                    : "@"+artistProfileData?.sociallinks[0]?.instagram?.split('/').pop()}
                 />
                 <Image style={styles.instaImage} source={Images.insta} />
-              </View>
+              </TouchableOpacity>
               <View style={styles.avatarContainer}>
                 <TouchableOpacity
                   style={styles.editImage}
@@ -701,14 +718,18 @@ const ArtistDetails = () => {
                   defaultSource={Images.profilepic}
                 />
               </View>
-              <View style={styles.artistContainer}>
+              <TouchableOpacity
+                onPress={()=>openSocialMedia('fb://', artistProfileData?.sociallinks[0]?.facebook)}
+                style={styles.artistContainer}>
                 <CustomText
                   color={Colors.lightGrey}
                   size={14}
-                  text={artistProfileData?.sociallinks[0]?.facebook}
+                  text={artistProfileData?.sociallinks[0]?.facebook?.split('/').pop()?.includes('facebook.com') 
+                    ? '@facebook.com' 
+                    : "@"+artistProfileData?.sociallinks[0]?.facebook?.split('/').pop()}
                 />
                 <Image style={styles.instaImage} source={Images.facbook} />
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={styles.jennyContainer}>
               <CustomText size={24} text={artistProfileData?.profile?.name} />
