@@ -1,55 +1,55 @@
-com.nagsh.app-jetified-emoji2-views-helper-1.2.0-0 C:\Users\zubai\.gradle\caches\transforms-3\02028c5e9678faab3995ccfdda02276b\transformed\jetified-emoji2-views-helper-1.2.0\res
-com.nagsh.app-constraintlayout-2.0.1-1 C:\Users\zubai\.gradle\caches\transforms-3\0ba735dba2731e15f60ec33d62030178\transformed\constraintlayout-2.0.1\res
-com.nagsh.app-jetified-play-services-basement-18.1.0-2 C:\Users\zubai\.gradle\caches\transforms-3\0cc909894cec52cee0ab35a3a74b57eb\transformed\jetified-play-services-basement-18.1.0\res
-com.nagsh.app-swiperefreshlayout-1.1.0-3 C:\Users\zubai\.gradle\caches\transforms-3\0f2ddb51bd2f3dac0d1675b771a219a4\transformed\swiperefreshlayout-1.1.0\res
-com.nagsh.app-jetified-ucrop-2.2.6-native-4 C:\Users\zubai\.gradle\caches\transforms-3\1438201e98919e4919e30fbc8f195966\transformed\jetified-ucrop-2.2.6-native\res
-com.nagsh.app-jetified-viewpager2-1.0.0-5 C:\Users\zubai\.gradle\caches\transforms-3\20873de6b0f7a074354616f47320e0a3\transformed\jetified-viewpager2-1.0.0\res
-com.nagsh.app-fragment-1.3.6-6 C:\Users\zubai\.gradle\caches\transforms-3\240a9435e219359a21e31dac6d7101c5\transformed\fragment-1.3.6\res
-com.nagsh.app-drawerlayout-1.1.1-7 C:\Users\zubai\.gradle\caches\transforms-3\39ef0f1372a097b49e3fc30f24ecd769\transformed\drawerlayout-1.1.1\res
-com.nagsh.app-transition-1.2.0-8 C:\Users\zubai\.gradle\caches\transforms-3\3f8a0fe1705b1de5a7de675956bdea74\transformed\transition-1.2.0\res
-com.nagsh.app-jetified-tracing-1.1.0-9 C:\Users\zubai\.gradle\caches\transforms-3\3fc1535c90fff8c1d1096aff75f85bc9\transformed\jetified-tracing-1.1.0\res
-com.nagsh.app-jetified-annotation-experimental-1.3.0-10 C:\Users\zubai\.gradle\caches\transforms-3\47a031f1ce19912ca11cd471b6e581ae\transformed\jetified-annotation-experimental-1.3.0\res
-com.nagsh.app-jetified-emoji2-1.2.0-11 C:\Users\zubai\.gradle\caches\transforms-3\531944abd99ec48c41a572e584058bb8\transformed\jetified-emoji2-1.2.0\res
-com.nagsh.app-jetified-lifecycle-viewmodel-savedstate-2.5.1-12 C:\Users\zubai\.gradle\caches\transforms-3\5a909c30dc72199b2b811e262a2f3b9f\transformed\jetified-lifecycle-viewmodel-savedstate-2.5.1\res
-com.nagsh.app-lifecycle-livedata-core-2.5.1-13 C:\Users\zubai\.gradle\caches\transforms-3\5ae6d3087831e2bd88e7d1d72bcc9e59\transformed\lifecycle-livedata-core-2.5.1\res
-com.nagsh.app-jetified-startup-runtime-1.1.1-14 C:\Users\zubai\.gradle\caches\transforms-3\635e63d3723f84167d88172ea3234457\transformed\jetified-startup-runtime-1.1.1\res
-com.nagsh.app-jetified-savedstate-1.2.0-15 C:\Users\zubai\.gradle\caches\transforms-3\674dc2ef1e0baa5d4094c44ab55b3194\transformed\jetified-savedstate-1.2.0\res
-com.nagsh.app-jetified-android-maps-utils-3.8.2-16 C:\Users\zubai\.gradle\caches\transforms-3\70115e368e747ae1eb5e460ae34d5c89\transformed\jetified-android-maps-utils-3.8.2\res
-com.nagsh.app-recyclerview-1.1.0-17 C:\Users\zubai\.gradle\caches\transforms-3\70747eb559ff7807e8c932781b25e1e3\transformed\recyclerview-1.1.0\res
-com.nagsh.app-lifecycle-viewmodel-2.5.1-18 C:\Users\zubai\.gradle\caches\transforms-3\7bd02fbd3820e88f03b1492ae9ef5a3b\transformed\lifecycle-viewmodel-2.5.1\res
-com.nagsh.app-cardview-1.0.0-19 C:\Users\zubai\.gradle\caches\transforms-3\85b389a3f92e194855448c3e1b318ff1\transformed\cardview-1.0.0\res
-com.nagsh.app-jetified-play-services-base-18.2.0-20 C:\Users\zubai\.gradle\caches\transforms-3\8819bb4b2e7f1028e0acc4d6367a9547\transformed\jetified-play-services-base-18.2.0\res
-com.nagsh.app-jetified-react-android-0.73.4-release-21 C:\Users\zubai\.gradle\caches\transforms-3\89ff291311b19267df87cddd76551dfc\transformed\jetified-react-android-0.73.4-release\res
-com.nagsh.app-jetified-lifecycle-process-2.4.1-22 C:\Users\zubai\.gradle\caches\transforms-3\910287a92276b36b2485e6076cef2693\transformed\jetified-lifecycle-process-2.4.1\res
-com.nagsh.app-coordinatorlayout-1.2.0-23 C:\Users\zubai\.gradle\caches\transforms-3\99dca3e8d83df7be24715aa472f10775\transformed\coordinatorlayout-1.2.0\res
-com.nagsh.app-lifecycle-runtime-2.5.1-24 C:\Users\zubai\.gradle\caches\transforms-3\a8179d9bb3834f277d8bae04f9878dad\transformed\lifecycle-runtime-2.5.1\res
-com.nagsh.app-work-runtime-2.7.1-25 C:\Users\zubai\.gradle\caches\transforms-3\aa7016c92f5218491bfc4896060e2a06\transformed\work-runtime-2.7.1\res
-com.nagsh.app-appcompat-1.6.1-26 C:\Users\zubai\.gradle\caches\transforms-3\b22d3e0c4656a90b15fe4a0f68cf710d\transformed\appcompat-1.6.1\res
-com.nagsh.app-jetified-play-services-maps-18.2.0-27 C:\Users\zubai\.gradle\caches\transforms-3\b2acbf275c2d0e90d025702b4b132e97\transformed\jetified-play-services-maps-18.2.0\res
-com.nagsh.app-jetified-autofill-1.1.0-28 C:\Users\zubai\.gradle\caches\transforms-3\bbc759acba2c048b57518195849d8071\transformed\jetified-autofill-1.1.0\res
-com.nagsh.app-jetified-activity-1.6.0-29 C:\Users\zubai\.gradle\caches\transforms-3\c3bb97f3478924ed0625181bcfcda1b9\transformed\jetified-activity-1.6.0\res
-com.nagsh.app-core-1.9.0-30 C:\Users\zubai\.gradle\caches\transforms-3\d082e34b8e22673a4af20f2c25151681\transformed\core-1.9.0\res
-com.nagsh.app-jetified-core-ktx-1.9.0-31 C:\Users\zubai\.gradle\caches\transforms-3\d1b09bce2b1aa215db5398a2d09612fc\transformed\jetified-core-ktx-1.9.0\res
-com.nagsh.app-jetified-drawee-3.1.3-32 C:\Users\zubai\.gradle\caches\transforms-3\d5c0cadbb0edf92d5b28fa0d4bc3b82b\transformed\jetified-drawee-3.1.3\res
-com.nagsh.app-material-1.9.0-33 C:\Users\zubai\.gradle\caches\transforms-3\de892d089af2e0549b94392be2625b83\transformed\material-1.9.0\res
-com.nagsh.app-jetified-appcompat-resources-1.6.1-34 C:\Users\zubai\.gradle\caches\transforms-3\e0cdcc55a2d5aa36d9639a54a84b1392\transformed\jetified-appcompat-resources-1.6.1\res
-com.nagsh.app-res-35 E:\Practice\React Native Cli\Beauty\android\app\build\generated\res\createBundleReleaseJsAndAssets
-com.nagsh.app-resValues-36 E:\Practice\React Native Cli\Beauty\android\app\build\generated\res\resValues\release
-com.nagsh.app-packageReleaseResources-37 E:\Practice\React Native Cli\Beauty\android\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
-com.nagsh.app-packageReleaseResources-38 E:\Practice\React Native Cli\Beauty\android\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
-com.nagsh.app-merged_res-39 E:\Practice\React Native Cli\Beauty\android\app\build\intermediates\merged_res\release
-com.nagsh.app-main-40 E:\Practice\React Native Cli\Beauty\android\app\src\main\res
-com.nagsh.app-release-41 E:\Practice\React Native Cli\Beauty\android\app\src\release\res
-com.nagsh.app-packaged_res-42 E:\Practice\React Native Cli\Beauty\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-43 E:\Practice\React Native Cli\Beauty\node_modules\@react-native-community\checkbox\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-44 E:\Practice\React Native Cli\Beauty\node_modules\@react-native-community\datetimepicker\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-45 E:\Practice\React Native Cli\Beauty\node_modules\react-native-geolocation-service\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-46 E:\Practice\React Native Cli\Beauty\node_modules\react-native-get-random-values\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-47 E:\Practice\React Native Cli\Beauty\node_modules\react-native-image-crop-picker\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-48 E:\Practice\React Native Cli\Beauty\node_modules\react-native-maps\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-49 E:\Practice\React Native Cli\Beauty\node_modules\react-native-mmkv\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-50 E:\Practice\React Native Cli\Beauty\node_modules\react-native-pager-view\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-51 E:\Practice\React Native Cli\Beauty\node_modules\react-native-permissions\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-52 E:\Practice\React Native Cli\Beauty\node_modules\react-native-restart\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-53 E:\Practice\React Native Cli\Beauty\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\release
-com.nagsh.app-packaged_res-54 E:\Practice\React Native Cli\Beauty\node_modules\react-native-screens\android\build\intermediates\packaged_res\release
+com.nagsh.app-jetified-emoji2-views-helper-1.2.0-0 C:\Users\a\.gradle\caches\transforms-3\02028c5e9678faab3995ccfdda02276b\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.nagsh.app-constraintlayout-2.0.1-1 C:\Users\a\.gradle\caches\transforms-3\0ba735dba2731e15f60ec33d62030178\transformed\constraintlayout-2.0.1\res
+com.nagsh.app-jetified-play-services-basement-18.1.0-2 C:\Users\a\.gradle\caches\transforms-3\0cc909894cec52cee0ab35a3a74b57eb\transformed\jetified-play-services-basement-18.1.0\res
+com.nagsh.app-swiperefreshlayout-1.1.0-3 C:\Users\a\.gradle\caches\transforms-3\0f2ddb51bd2f3dac0d1675b771a219a4\transformed\swiperefreshlayout-1.1.0\res
+com.nagsh.app-jetified-ucrop-2.2.6-native-4 C:\Users\a\.gradle\caches\transforms-3\1438201e98919e4919e30fbc8f195966\transformed\jetified-ucrop-2.2.6-native\res
+com.nagsh.app-jetified-viewpager2-1.0.0-5 C:\Users\a\.gradle\caches\transforms-3\20873de6b0f7a074354616f47320e0a3\transformed\jetified-viewpager2-1.0.0\res
+com.nagsh.app-fragment-1.3.6-6 C:\Users\a\.gradle\caches\transforms-3\240a9435e219359a21e31dac6d7101c5\transformed\fragment-1.3.6\res
+com.nagsh.app-drawerlayout-1.1.1-7 C:\Users\a\.gradle\caches\transforms-3\39ef0f1372a097b49e3fc30f24ecd769\transformed\drawerlayout-1.1.1\res
+com.nagsh.app-transition-1.2.0-8 C:\Users\a\.gradle\caches\transforms-3\3f8a0fe1705b1de5a7de675956bdea74\transformed\transition-1.2.0\res
+com.nagsh.app-jetified-tracing-1.1.0-9 C:\Users\a\.gradle\caches\transforms-3\3fc1535c90fff8c1d1096aff75f85bc9\transformed\jetified-tracing-1.1.0\res
+com.nagsh.app-jetified-annotation-experimental-1.3.0-10 C:\Users\a\.gradle\caches\transforms-3\47a031f1ce19912ca11cd471b6e581ae\transformed\jetified-annotation-experimental-1.3.0\res
+com.nagsh.app-jetified-emoji2-1.2.0-11 C:\Users\a\.gradle\caches\transforms-3\531944abd99ec48c41a572e584058bb8\transformed\jetified-emoji2-1.2.0\res
+com.nagsh.app-jetified-lifecycle-viewmodel-savedstate-2.5.1-12 C:\Users\a\.gradle\caches\transforms-3\5a909c30dc72199b2b811e262a2f3b9f\transformed\jetified-lifecycle-viewmodel-savedstate-2.5.1\res
+com.nagsh.app-lifecycle-livedata-core-2.5.1-13 C:\Users\a\.gradle\caches\transforms-3\5ae6d3087831e2bd88e7d1d72bcc9e59\transformed\lifecycle-livedata-core-2.5.1\res
+com.nagsh.app-jetified-startup-runtime-1.1.1-14 C:\Users\a\.gradle\caches\transforms-3\635e63d3723f84167d88172ea3234457\transformed\jetified-startup-runtime-1.1.1\res
+com.nagsh.app-jetified-savedstate-1.2.0-15 C:\Users\a\.gradle\caches\transforms-3\674dc2ef1e0baa5d4094c44ab55b3194\transformed\jetified-savedstate-1.2.0\res
+com.nagsh.app-jetified-android-maps-utils-3.8.2-16 C:\Users\a\.gradle\caches\transforms-3\70115e368e747ae1eb5e460ae34d5c89\transformed\jetified-android-maps-utils-3.8.2\res
+com.nagsh.app-recyclerview-1.1.0-17 C:\Users\a\.gradle\caches\transforms-3\70747eb559ff7807e8c932781b25e1e3\transformed\recyclerview-1.1.0\res
+com.nagsh.app-lifecycle-viewmodel-2.5.1-18 C:\Users\a\.gradle\caches\transforms-3\7bd02fbd3820e88f03b1492ae9ef5a3b\transformed\lifecycle-viewmodel-2.5.1\res
+com.nagsh.app-cardview-1.0.0-19 C:\Users\a\.gradle\caches\transforms-3\85b389a3f92e194855448c3e1b318ff1\transformed\cardview-1.0.0\res
+com.nagsh.app-jetified-play-services-base-18.2.0-20 C:\Users\a\.gradle\caches\transforms-3\8819bb4b2e7f1028e0acc4d6367a9547\transformed\jetified-play-services-base-18.2.0\res
+com.nagsh.app-jetified-react-android-0.73.4-release-21 C:\Users\a\.gradle\caches\transforms-3\89ff291311b19267df87cddd76551dfc\transformed\jetified-react-android-0.73.4-release\res
+com.nagsh.app-jetified-lifecycle-process-2.4.1-22 C:\Users\a\.gradle\caches\transforms-3\910287a92276b36b2485e6076cef2693\transformed\jetified-lifecycle-process-2.4.1\res
+com.nagsh.app-coordinatorlayout-1.2.0-23 C:\Users\a\.gradle\caches\transforms-3\99dca3e8d83df7be24715aa472f10775\transformed\coordinatorlayout-1.2.0\res
+com.nagsh.app-lifecycle-runtime-2.5.1-24 C:\Users\a\.gradle\caches\transforms-3\a8179d9bb3834f277d8bae04f9878dad\transformed\lifecycle-runtime-2.5.1\res
+com.nagsh.app-work-runtime-2.7.1-25 C:\Users\a\.gradle\caches\transforms-3\aa7016c92f5218491bfc4896060e2a06\transformed\work-runtime-2.7.1\res
+com.nagsh.app-appcompat-1.6.1-26 C:\Users\a\.gradle\caches\transforms-3\b22d3e0c4656a90b15fe4a0f68cf710d\transformed\appcompat-1.6.1\res
+com.nagsh.app-jetified-play-services-maps-18.2.0-27 C:\Users\a\.gradle\caches\transforms-3\b2acbf275c2d0e90d025702b4b132e97\transformed\jetified-play-services-maps-18.2.0\res
+com.nagsh.app-jetified-autofill-1.1.0-28 C:\Users\a\.gradle\caches\transforms-3\bbc759acba2c048b57518195849d8071\transformed\jetified-autofill-1.1.0\res
+com.nagsh.app-jetified-activity-1.6.0-29 C:\Users\a\.gradle\caches\transforms-3\c3bb97f3478924ed0625181bcfcda1b9\transformed\jetified-activity-1.6.0\res
+com.nagsh.app-core-1.9.0-30 C:\Users\a\.gradle\caches\transforms-3\d082e34b8e22673a4af20f2c25151681\transformed\core-1.9.0\res
+com.nagsh.app-jetified-core-ktx-1.9.0-31 C:\Users\a\.gradle\caches\transforms-3\d1b09bce2b1aa215db5398a2d09612fc\transformed\jetified-core-ktx-1.9.0\res
+com.nagsh.app-jetified-drawee-3.1.3-32 C:\Users\a\.gradle\caches\transforms-3\d5c0cadbb0edf92d5b28fa0d4bc3b82b\transformed\jetified-drawee-3.1.3\res
+com.nagsh.app-material-1.9.0-33 C:\Users\a\.gradle\caches\transforms-3\de892d089af2e0549b94392be2625b83\transformed\material-1.9.0\res
+com.nagsh.app-jetified-appcompat-resources-1.6.1-34 C:\Users\a\.gradle\caches\transforms-3\e0cdcc55a2d5aa36d9639a54a84b1392\transformed\jetified-appcompat-resources-1.6.1\res
+com.nagsh.app-res-35 E:\ReactNativeCli\Beauty2\android\app\build\generated\res\createBundleReleaseJsAndAssets
+com.nagsh.app-resValues-36 E:\ReactNativeCli\Beauty2\android\app\build\generated\res\resValues\release
+com.nagsh.app-packageReleaseResources-37 E:\ReactNativeCli\Beauty2\android\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.nagsh.app-packageReleaseResources-38 E:\ReactNativeCli\Beauty2\android\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.nagsh.app-merged_res-39 E:\ReactNativeCli\Beauty2\android\app\build\intermediates\merged_res\release
+com.nagsh.app-main-40 E:\ReactNativeCli\Beauty2\android\app\src\main\res
+com.nagsh.app-release-41 E:\ReactNativeCli\Beauty2\android\app\src\release\res
+com.nagsh.app-packaged_res-42 E:\ReactNativeCli\Beauty2\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-43 E:\ReactNativeCli\Beauty2\node_modules\@react-native-community\checkbox\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-44 E:\ReactNativeCli\Beauty2\node_modules\@react-native-community\datetimepicker\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-45 E:\ReactNativeCli\Beauty2\node_modules\react-native-geolocation-service\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-46 E:\ReactNativeCli\Beauty2\node_modules\react-native-get-random-values\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-47 E:\ReactNativeCli\Beauty2\node_modules\react-native-image-crop-picker\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-48 E:\ReactNativeCli\Beauty2\node_modules\react-native-maps\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-49 E:\ReactNativeCli\Beauty2\node_modules\react-native-mmkv\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-50 E:\ReactNativeCli\Beauty2\node_modules\react-native-pager-view\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-51 E:\ReactNativeCli\Beauty2\node_modules\react-native-permissions\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-52 E:\ReactNativeCli\Beauty2\node_modules\react-native-restart\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-53 E:\ReactNativeCli\Beauty2\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\release
+com.nagsh.app-packaged_res-54 E:\ReactNativeCli\Beauty2\node_modules\react-native-screens\android\build\intermediates\packaged_res\release
