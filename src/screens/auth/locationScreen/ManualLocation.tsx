@@ -34,7 +34,7 @@ const ManualLocation = () => {
   return (
     <View style={styles.container}>
       <Header heading={strings?.enteryourlocation} />
-      {/* <View style={styles.input}>
+      <View style={styles.input}>
         <View style={styles.flex}>
           <Image source={Images.search} />
           <TextInput
@@ -44,7 +44,7 @@ const ManualLocation = () => {
           />
         </View>
         <Image source={Images.cross} />
-      </View> */}
+      </View>
       {/* <GooglePlacesAutocomplete
         placeholder="Enter location"
         onPress={(data, details = null) => {
@@ -62,7 +62,7 @@ const ManualLocation = () => {
           textInput: styles.textInput,
         }}
       /> */}
-      <GooglePlacesAutocomplete
+      {/* <GooglePlacesAutocomplete
         placeholder="Search"
         fetchDetails={true}
         onPress={(data, details = null) => {
@@ -103,7 +103,7 @@ const ManualLocation = () => {
             backgroundColor: 'blue',
           },
         }}
-      />
+      /> */}
       <View style={styles.currentLocation}>
         <Image style={{marginRight: 10}} source={Images.locationmark} />
         <CustomText size={16} text={strings.usecurrenloc} />

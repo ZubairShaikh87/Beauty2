@@ -32,14 +32,45 @@ const UploadDocs = () => {
   const [uploadDocuments] = useUploadArtistDocumentMutation();
 
   const [documentsImages, setDocumentsImages] = useState();
-  const [workPhotos, setWorkPhotos] = useState();
+  const [workPhotos, setWorkPhotos] = useState([]);
   // API functions
   const UploadDocuments = () => {
+    // const workImages = Object.values(workPhotos).map(value => {
+    //   console.log("workPhotos va", value); // Prints each image object
+    //   return value; // Returning the image object for formData
+    // });
+    const workImages = Object.values(workPhotos);
+    console.log("workImages",workImages)
+    
     if (documentsImages?.license && documentsImages?.nationalId) {
       const formData = new FormData();
       formData.append('licenseimage', documentsImages?.license);
       formData.append('idimage', documentsImages?.nationalId);
-      formData.append('workimages', workPhotos);
+      // formData.append('workimages[]', workPhotos?.workPic1);
+      workImages.forEach((image, index) => {
+        if (image?.uri && image?.type) {
+          const fileName = image?.name || `image_${index}.jpg`; // Ensure name is provided
+          formData.append('workimages[]', {
+            uri: image.uri,
+            type: image.type,
+            name: fileName,
+          });
+          console.log("img11", image);
+        }
+      });
+      // formData.append('workimages[]', workImages.forEach((image, index) => {
+      //   if (image?.uri && image?.type && image?.name) {
+      //     formData.append(`workimages[${index}]`, {
+      //       uri: image.uri,
+      //       type: image.type,
+      //       name: image.name || `image_${index}.jpg`, // Ensure name is provided
+      //     });
+      //   }
+      //   console.log("img11",image)
+      // }));
+
+      // formData.append('workimages[]',JSON.stringify(workImages));
+      // formData.append('workimages[]',JSON.stringify(workImages));
       console.log(formData, 'sdjfksdfjksdjfkds');
       // return;
       uploadDocuments(formData)
@@ -47,13 +78,13 @@ const UploadDocs = () => {
         ?.then(response => {
           console.log(response, 'dsjfkdsjfkdsjfk');
 
-          localStorage?.clearAll();
-          dispatch(setUserType(null));
-          dispatch(setToken(null));
-          dispatch(setUser(null));
+          // localStorage?.clearAll();
+          // dispatch(setUserType(null));
+          // dispatch(setToken(null));
+          // dispatch(setUser(null));
           // NOTE:
           // Will be redirect to login once the user(artist) upload the document while completing the signup process.
-          navigation.navigate(strings.loginscreen);
+          // navigation.navigate(strings.loginscreen);
           AppToast({type: 'success', message: 'Login now'});
         })
         .catch(error => {
@@ -88,7 +119,7 @@ const UploadDocs = () => {
       let obj = {
         uri: image?.path,
         type: image?.mime,
-        name: image?.filename,
+        name: "image",
       };
       let obbb = {[key]: obj};
       console.log(obbb);

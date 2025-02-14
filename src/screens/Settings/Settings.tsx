@@ -24,7 +24,7 @@ const Settings = () => {
           heading={strings.password_manager}
           icon={Images.key}
           fontSize={18}
-          onPress={() => navigation.navigate(strings.password_manager)}
+          onPress={() => navigation.navigate("PasswordManager")}
         />
         <ProfileDetail
           heading={strings.delete_account}

@@ -39,6 +39,7 @@ import {setDataInLocalStorage} from '../../../utils/mmkv/MMKV';
 import {setUser} from '../../../Redux/Reducers/UserSlice';
 import {MMKV_KEYS} from '../../../constants/MMKV_KEY';
 import {changeStack} from '../../../navigators/NavigationService';
+import { ActivityIndicator } from 'react-native-paper';
 
 const Location = ({navigation}) => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Location = ({navigation}) => {
   const [addLocationAPI, { isLoading }] = useAddLocationMutation();
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [locationCoords, setLocationCoords] = useState(null);
+  console.log("first",locationCoords,selectedLocation)
   const [address, setAddress] = useState('');
   const [hasLocationPermission, setHasLocationPermission] = useState(false);
   console.log("locationCoords",locationCoords)
@@ -64,6 +66,8 @@ const Location = ({navigation}) => {
     }
   };
 
+const [lod, setLod] = useState(false)
+
   // Get the user's current location
   const getLocation = () => {
     Geolocation.getCurrentPosition(
@@ -72,6 +76,8 @@ const Location = ({navigation}) => {
         const { latitude, longitude } = position.coords;
         setLocationCoords({ latitude, longitude });
         getAddressFromCoordinates(latitude, longitude);
+        navigation.navigate(strings.uploaddocsscreen);
+        setLod(false)
       },
       (error) => {
         console.error('Location error:', error);
@@ -97,6 +103,7 @@ const Location = ({navigation}) => {
       if (data.results && data.results.length > 0) {
         const address = data.results[0].formatted_address;
         setAddress(address);
+        setLod(false)
       } else {
         setAddress('Address not found');
       }
@@ -118,8 +125,7 @@ const Location = ({navigation}) => {
   };
 
   // Initialize permissions and get location on screen load
-  useEffect(() => {
-    const initializeLocation = async () => {
+  const currentLocation= async () => {
       const hasPermission = await requestLocationPermission();
       if (hasPermission) {
         setHasLocationPermission(true);
@@ -128,12 +134,15 @@ const Location = ({navigation}) => {
         setHasLocationPermission(false);
         handlePermissionError();
       }
-    };
-    initializeLocation();
-  }, []);
+  }
+  // useEffect(() => {
+    
+  //   initializeLocation();
+  // }, []);
 
   // Add location handler
   const handleAddLocation = (city, lat, long) => {
+    console.log("re",city,lat,long)
     if (selectedLocation || locationCoords) {
       const formData = new FormData();
       formData.append('city', city);
@@ -143,9 +152,10 @@ const Location = ({navigation}) => {
       addLocationAPI(formData)
         .unwrap()
         .then((response) => {
-          dispatch(setUser(response?.user));
-          setDataInLocalStorage(MMKV_KEYS.USER_DATA, response?.user);
-          changeStack('AppStack');
+          // dispatch(setUser(response?.user));
+          // setDataInLocalStorage(MMKV_KEYS.USER_DATA, response?.user);
+          // changeStack('AppStack');
+          navigation.navigate(strings.uploaddocsscreen);
         })
         .catch((error) => {
           console.error(error);
@@ -154,6 +164,7 @@ const Location = ({navigation}) => {
       AppToast({ type: 'error', message: 'Select Location' });
     }
   };
+  console.log("selectedLocation",selectedLocation)
 
   //Main Return
   return (
@@ -210,16 +221,33 @@ const Location = ({navigation}) => {
         //   )
         // }
         >
-        <Image style={{marginRight: 10}} source={Images.locationmark} />
-        <CustomText size={16} text={strings.usecurrenloc} />
+          {
+            lod?
+            <ActivityIndicator/>
+            :
+            <Image style={{marginRight: 10}} source={Images.locationmark} />
+          }
+        <TouchableOpacity
+        onPress={()=>{currentLocation(),setLod(true)}}
+        >
+          <CustomText size={16} text={strings.usecurrenloc} />
+        </TouchableOpacity>
       </Pressable>
       <CustomButton
         onPress={() => {
-          handleAddLocation(
-            selectedLocation?.name_ar,
-            selectedLocation?.center[0],
-            selectedLocation?.center[1],
-          );
+          if(selectedLocation != null){
+            handleAddLocation(
+              selectedLocation?.name_ar,
+              selectedLocation?.center[0],
+              selectedLocation?.center[1],
+            );
+          }
+          else if(selectedLocation == null){
+            AppToast({ type: 'error', message: 'Please Select City' });
+          }
+          else{
+            AppToast({ type: 'error', message: 'something went wrong' });
+          }
         }}
         isLoader={isLoading}
         style={{marginTop: 20}}

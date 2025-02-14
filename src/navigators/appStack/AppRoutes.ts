@@ -34,6 +34,7 @@ import UserBottomStack from '../UserBottomStack/UserBottomStack';
 import BookApointment from '../../screens/UserScreen/artistDetailsScreen/BookApointment';
 import ArtistDetailsUser from '../../screens/UserScreen/artistDetailsScreen/ArtistDetails';
 import ManualLocation from '../../screens/auth/locationScreen/ManualLocation';
+import PasswordManager from '../../screens/auth/PasswordManager/PasswordManager';
 
 // Get user type for stacks management
 
@@ -131,6 +132,10 @@ export const appRoutes = [
   {
     name: 'Transactions',
     component: Transactions,
+  },
+  {
+    name: 'PasswordManager',
+    component: PasswordManager,
   },
   {
     name: 'Membership',

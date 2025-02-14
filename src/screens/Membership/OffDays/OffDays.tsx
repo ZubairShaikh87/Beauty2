@@ -132,7 +132,7 @@ const OffDays = () => {
   return (
     <View style={styles.container}>
       <Header heading={strings?.offdays} />
-      <View style={{flex:dayOffData.length<1?0:1,flexWrap:"wrap",flexDirection:"row"}}>
+      <View style={{flex:dayOffData?.length<1?0:1,flexWrap:"wrap",flexDirection:"row"}}>
 
       
       {dayOffData?.map((val,index)=>{
