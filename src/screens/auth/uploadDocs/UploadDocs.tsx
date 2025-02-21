@@ -84,7 +84,7 @@ const UploadDocs = () => {
           // dispatch(setUser(null));
           // NOTE:
           // Will be redirect to login once the user(artist) upload the document while completing the signup process.
-          // navigation.navigate(strings.loginscreen);
+          navigation.navigate(strings.loginscreen);
           AppToast({type: 'success', message: 'Login now'});
         })
         .catch(error => {

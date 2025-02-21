@@ -53,11 +53,11 @@ const ArtistDetails = () => {
       const supported = await Linking.canOpenURL(appUrl);
       if (supported) {
         await Linking.openURL(appUrl);
-      } else {
+      } else if (!supported){
         await Linking.openURL(webUrl);
-      }
+      } 
     } catch (error) {
-      Alert.alert('Error', 'Unable to open the link');
+      Alert.alert('Message', 'Unable to open the link');
     }
   };
   //API initialization
@@ -656,6 +656,8 @@ const ArtistDetails = () => {
   ////////// Main Return /////////////////
   return (
     <View style={styles.container}>
+      <View>
+
       <Animated.View style={[styles.header, { height: headerHeight, opacity: headerOpacity }]}>
         <ImageBackground
           style={styles.bgImageStyle}
@@ -667,6 +669,7 @@ const ArtistDetails = () => {
               : Images.profilebg
           }
         >
+          
           <TouchableOpacity
             style={styles.backImage}
             activeOpacity={strings.buttonopacity}
@@ -684,6 +687,7 @@ const ArtistDetails = () => {
           </TouchableOpacity>
         </ImageBackground>
       </Animated.View>
+      </View>
       <Animated.ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -692,7 +696,7 @@ const ArtistDetails = () => {
       >
         <View style={styles.content}>
           <Animated.View style={[styles.profileSection, { transform: [{ translateY: profileTranslateY }] }]}>
-            
+            {console.log("artistProfileData",artistProfileData)}
             <View style={styles.iconMainContainer}>
               <TouchableOpacity
                 onPress={()=>{openSocialMedia('instagram://', artistProfileData?.sociallinks[0]?.instagram)}}
@@ -700,9 +704,13 @@ const ArtistDetails = () => {
                 <CustomText
                   color={Colors.lightGrey}
                   size={14}
-                  text={artistProfileData?.sociallinks[0]?.instagram?.split('/').pop()?.includes('instagram.com') 
-                    ? '@instagram.com' 
-                    : "@"+artistProfileData?.sociallinks[0]?.instagram?.split('/').pop()}
+                  text={
+                    artistProfileData?.sociallinks.length<0?
+                      artistProfileData?.sociallinks[0]?.instagram?.split('/').pop()?.includes('instagram.com') 
+                      ? '@instagram.com' 
+                      : "@"+artistProfileData?.sociallinks[0]?.instagram?.split('/').pop()
+                  :'@instagram.com'
+                  }
                 />
                 <Image style={styles.instaImage} source={Images.insta} />
               </TouchableOpacity>
@@ -724,9 +732,13 @@ const ArtistDetails = () => {
                 <CustomText
                   color={Colors.lightGrey}
                   size={14}
-                  text={artistProfileData?.sociallinks[0]?.facebook?.split('/').pop()?.includes('facebook.com') 
-                    ? '@facebook.com' 
-                    : "@"+artistProfileData?.sociallinks[0]?.facebook?.split('/').pop()}
+                  text={
+                    artistProfileData?.sociallinks.length<0?
+                      artistProfileData?.sociallinks[0]?.facebook?.split('/').pop()?.includes('facebook.com') 
+                      ? '@facebook.com' 
+                      : "@"+artistProfileData?.sociallinks[0]?.facebook?.split('/').pop()
+                    :'@facebook.com'
+                    }
                 />
                 <Image style={styles.instaImage} source={Images.facbook} />
               </TouchableOpacity>
