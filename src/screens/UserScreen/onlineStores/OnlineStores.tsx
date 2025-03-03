@@ -1,4 +1,4 @@
-import {Alert, FlatList, ScrollView, StyleSheet, View} from 'react-native';
+import {Alert, FlatList, Image, Pressable, ScrollView, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import ArtistBrand from '../../../components/artistBrand/ArtistBrand';
@@ -9,113 +9,175 @@ import Header from '../../../components/header/Header';
 import CustomText from '../../../components/text/CustomText';
 import {nearAtristDetail, topAtristDetail} from '../../../utils/dummyData';
 import {useLazyGetArtistsForServiceQuery} from '../../../Redux/services/app/AppApi';
+import { Images } from '../../../assets/images';
+import { screenWidth } from '../../../utils/dimensions';
+import DetailCard from '../../../components/detailCard/DetailCard';
+import ButtonWithImage from '../../../components/buttonWithImage/ButtonWithImage';
 
 const OnlineStores = ({route}: {route: Object}) => {
-  const navigation: any = useNavigation();
-  const {itemData} = route?.params;
-  // Alert.alert(JSON.stringify(itemData?.id));
-  //API initialization
-  const [getArtist] = useLazyGetArtistsForServiceQuery();
-  // States
-  const [artistList, setArtistList] = useState([]);
-  useEffect(() => {
-    // itemData?.id && getArtist(itemData?.id);
-    itemData?.id && GetArtist(itemData?.id);
-  }, []);
-  const GetArtist = (serviceId: string) => {
-    getArtist(serviceId)
-      .unwrap()
-      ?.then(response => {
-        const {data} = response;
-
-        const getArtistsList = data?.reduce((acc, item) => {
-          if (item?.artist) {
-            const existingArtist = acc?.find(
-              artist => artist?.id === item?.artist?.id,
-            );
-            if (existingArtist === undefined) {
-              acc?.push(item?.artist);
-            }
-          }
-          return acc;
-        }, []);
-        setArtistList(getArtistsList);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-  const renderItemTopArtist = (item: any, index: number) => {
+   const navigation: any = useNavigation();
+  const BookingData = [
+    {
+      count: '05',
+      heading: 'إجمالي المشاهدات',
+    },
+    {
+      count: '345',
+      heading: 'إجمالي الإشارات المرجعية',
+    },
+    
+  ];
+  const renderItem = (item: any, index: number) => {
     return (
-      <ArtistBrand
-        onPress={() => navigation.navigate(strings.userArtist)}
-        image={item?.img}
-        heading={item?.heading}
-        distance={item?.distance}
-        time={item?.time}
-      />
-    );
-  };
-  const renderItemNearArtist = (item: any, index: number) => {
-    return (
-      <ArtistDetail
-        artistDetail={item}
-        image={item?.img}
-        heading={item?.heading}
-        distance={item?.distance}
-        time={item?.time}
-        desc={item?.desc}
-        address={item?.address}
-      />
+      <View style={{paddingVertical: 6, paddingHorizontal: 4}}>
+        <DetailCard
+          bgcolor={index === 0 ? Colors.white : Colors.primary}
+          countColor={index === 0 ? Colors.primary : Colors.white}
+          headingColor={index === 0 ? Colors.primary : Colors.white}
+          count={item?.count}
+          heading={item?.heading}
+        />
+      </View>
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: Colors.white}}>
-      <Header heading={itemData?.category} />
-      <ScrollView
-        bounces={false}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}>
-        {/* <View style={[styles.searchContainer, {marginTop: 8}]}>
-          <CustomText size={18} text={strings.toprated} />
-          <CustomText size={13} color={Colors.primary} text={strings.seeall} />
-        </View> */}
-        {/* <FlatList
-          style={{marginTop: 10, marginLeft: 15}}
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          data={topAtristDetail}
-          renderItem={({item, index}) => renderItemTopArtist(item, index)}
-        /> */}
-        <View style={[styles.searchContainer, {marginTop: 8}]}>
-          <CustomText size={18} text={strings.nearartist} />
-          {/* <CustomText size={13} color={Colors.primary} text={strings.seeall} /> */}
-        </View>
+    <View style={styling.container}>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <CustomText
+        color={Colors.lightGrey}
+        size={14}
+        text={strings?.location}
+      />
+      <Pressable
+        style={[styling.flex, {paddingVertical: 10, gap: 10}]}
+        onPress={() => {
+          navigation.navigate('ManualLocation');
+        }}>
+        <Image source={Images.location} />
+          <CustomText text={strings.newyork} />
+        </Pressable>
         <FlatList
-          style={styles.nearFlatlist}
-          contentContainerStyle={{
-            width: '100%',
-            paddingHorizontal: 24,
-          }}
-          data={artistList}
-          scrollEnabled={false}
-          renderItem={({item, index}) => renderItemNearArtist(item, index)}
+                  scrollEnabled={false}
+                  data={BookingData}
+                  numColumns={2}
+                  renderItem={({item, index}) => renderItem(item, index)}
+                />
+                <View style={styling.noStore}>
+            <Image source={Images.calendar_clock} />
+            <CustomText
+              style={styling.textStyle}
+              text={'No Store Added'}
+              size={20}
+              color='#262626'
+            />
+            <CustomText
+              style={styling.loriumText}
+              text={strings.loriumText}
+              size={14}
+            />
+          <ButtonWithImage
+          text={strings.addService}
+          fontWeihgt="900"
+          imageStyle={styling.buttonStyle}
+          width={screenWidth / 1.6}
+          borderRadius={30}
+          paddingVerticel={10}
+          onPress={() => navigation.navigate('OnlineStoresDetail')}
         />
+          </View>
       </ScrollView>
-    </View>
+      </View>
   );
 };
 
 export default OnlineStores;
 
-const styles = StyleSheet.create({
-  searchContainer: {
+
+const styling = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 10,
+    paddingHorizontal: 20,
+    backgroundColor: Colors.white,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  buttonStyle: {width: 20, height: 20},
+  textStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  seeAllView: {
+    alignItems: 'center',
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
+    marginVertical: 12,
+  },
+  marginText: {
+    marginBottom: 5,
+    paddingRight: 10,
+    textAlign: 'right',
+  },
+  borderContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 20,
+    borderWidth: 1,
+    backgroundColor: Colors.white,
+    borderColor: Colors.grey100,
+  },
+  rowFlex: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  specialOfferText: {width: screenWidth / 4},
+  loc: {
+    color: Colors.lightGrey,
+  },
+  center: {
+    alignItems: 'center',
+  },
+  flex: {flexDirection: 'row', alignItems: 'center'},
+  locDropdown: {
+    borderColor: 'transparent',
+    width: screenWidth / 1.5,
+    backgroundColor: 'transparent',
+  },
+  online: {
+    marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 15,
+    backgroundColor: Colors.white,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    borderRadius: 12,
+    borderColor: Colors.grey100,
+    borderWidth: 1,
   },
-  nearFlatlist: {
-    marginTop: 10,
+  price: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.white,
+    marginTop: 7,
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 16,
+    zIndex: 100,
   },
+  monthdropDown: {
+    borderColor: 'transparent',
+    width: screenWidth / 4,
+    backgroundColor: 'transparent',
+    flexDirection: 'row-reverse',
+    zIndex: 10000,
+  },
+  bell: {position: 'absolute', right: 0, top: 15},
+  loriumText: {color: Colors.lightGrey, fontWeight: 'bold', textAlign: 'center'},
+  noStore:{alignItems:"center",marginTop:50}
 });

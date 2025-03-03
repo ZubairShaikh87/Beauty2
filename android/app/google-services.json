@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "236921710643",
+    "project_id": "nagshapp-6fa96",
+    "storage_bucket": "nagshapp-6fa96.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236921710643:android:1688250dba5984dc919b46",
+        "android_client_info": {
+          "package_name": "com.nagsh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOCPNAH3lzo0tr7Cdfh8u6h1WmV72ZHg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

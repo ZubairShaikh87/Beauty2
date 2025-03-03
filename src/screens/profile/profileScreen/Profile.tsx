@@ -78,9 +78,14 @@ const Profile = () => {
           onPress={() => navigation.navigate("OffDays")}
         />
         <ProfileDetail
+          heading={strings.onlinestorescreen}
+          icon={Images.cost}
+          onPress={() => navigation.navigate("OnlineStores",{ itemData: 81 })}
+        />
+        <ProfileDetail
           heading={strings.membership}
           icon={Images.receipt}
-          onPress={() => navigation.navigate("Membership")}
+          onPress={() => navigation.navigate("Membership",)}
         />
         <ProfileDetail
           heading={strings.paymentmethod}

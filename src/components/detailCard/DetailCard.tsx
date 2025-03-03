@@ -32,7 +32,7 @@ const DetailCard: FC<DetailCardPropsTypes> = ({
       />
       <CustomText
         color={headingColor || Colors.primary}
-        size={17}
+        size={14}
         text={heading}
       />
     </View>

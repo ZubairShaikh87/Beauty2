@@ -1,11 +1,12 @@
 import {
   Alert,
+  Button,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Colors} from '../../../utils/colors/colors';
 import CustomInput from '../../../components/input/CustomInput';
 import {screenHeight, screenWidth} from '../../../utils/dimensions';
@@ -24,6 +25,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getUserType, setUserType} from '../../../Redux/Reducers/UserTypeSlice';
 import {changeStack} from '../../../navigators/NavigationService';
 import {setToken, setUser} from '../../../Redux/Reducers/UserSlice';
+
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -50,7 +54,9 @@ const Login = () => {
       await loginApi(formData)
         .unwrap()
         .then(response => {
+          console.log("response?.data?",response?.data)
           if (response?.data) {
+            console.log("response?.data?.role",response?.data?.role)
             const userRole =
               Number(response?.data?.role) === 0 ? 'user' : 'business';
             dispatch(setUserType(userRole));
@@ -91,6 +97,33 @@ const Login = () => {
   const handleErrors = (errorMessage: string, input: string) => {
     setErrors(prevState => ({...prevState, [input]: errorMessage}));
   };
+
+  // Google login
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: 'YOUR_WEB_CLIENT_ID', // Replace with your Web Client ID
+      offlineAccess: true,
+    });
+  }, []);
+
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log('User Info:', userInfo);
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        console.log('User cancelled the login');
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        console.log('Sign in is in progress');
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        console.log('Play services not available');
+      } else {
+        console.log('Some other error:', error);
+      }
+    }
+  };
+  
   // main return
   return (
     <View style={styles.container}>
@@ -139,7 +172,8 @@ const Login = () => {
             <View style={styles.divider} />
           </View>
           <View style={styles.social}>
-            <SocialButton icon={Images.google} />
+          <Button title="Sign in with Google" onPress={signIn} />
+            {/* <SocialButton icon={Images.google} /> */}
             <SocialButton icon={Images.fb} />
           </View>
           <TouchableOpacity

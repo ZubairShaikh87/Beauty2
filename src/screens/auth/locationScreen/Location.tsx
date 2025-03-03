@@ -76,7 +76,10 @@ const [lod, setLod] = useState(false)
         const { latitude, longitude } = position.coords;
         setLocationCoords({ latitude, longitude });
         getAddressFromCoordinates(latitude, longitude);
-        navigation.navigate(strings.uploaddocsscreen);
+
+        console.log(latitude, longitude, 'khi',"fsdf")
+        handleAddLocation('khi',latitude, longitude)
+        // navigation.navigate(strings.uploaddocsscreen);
         setLod(false)
       },
       (error) => {
