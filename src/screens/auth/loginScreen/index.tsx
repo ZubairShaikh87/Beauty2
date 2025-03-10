@@ -101,7 +101,8 @@ const Login = () => {
   // Google login
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId: 'YOUR_WEB_CLIENT_ID', // Replace with your Web Client ID
+      webClientId: '476821168024-ak2q019ts9l47qb8jgk2ep1u91e3ncdo.apps.googleusercontent.com', // Replace with your Web Client ID
+      // webClientId: 'YOUR_WEB_CLIENT_ID', // Replace with your Web Client ID
       offlineAccess: true,
     });
   }, []);

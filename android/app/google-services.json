@@ -12,7 +12,12 @@
           "package_name": "com.nagsh"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "236921710643-sr8329ac9u5drvsr4cu2kuhfsm6avsmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDOCPNAH3lzo0tr7Cdfh8u6h1WmV72ZHg0"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236921710643-sr8329ac9u5drvsr4cu2kuhfsm6avsmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
