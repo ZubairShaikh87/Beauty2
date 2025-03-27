@@ -19,6 +19,7 @@ import SocialButton from '../../../components/socialButton/SocialButton';
 import {
   useSignUpArtistMutation,
   useSignUpMutation,
+  useSignUpStoreMutation,
 } from '../../../Redux/services/auth/AuthApi';
 import AppToast from '../../../components/appToast/AppToast';
 import Utility from '../../../utils/utility/Utility';
@@ -34,6 +35,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   // API initialization
   const [signupArtistApi, {isLoading}] = useSignUpArtistMutation();
+  const [signupStoreApi ] = useSignUpStoreMutation();
   const navigation: any = useNavigation();
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [open, setOpen] = useState(false);
@@ -44,12 +46,13 @@ const Signup = () => {
     {label: strings.artist, value: 'artist'},
     {label: strings.onlinestore, value: 'onlineStore'},
   ]);
+
   // TESTING Data Enter for now
   const [inputsDetails, setinputsDetails] = useState({
     name: 'mehran',
     phone: '12345678901',
     email: 'beauty@gmail.com',
-    category: categoryValue,
+    category: value,
     address: 'karachi',
     business_email: 'beauty@gmail.com',
     business_name: 'beatuy',
@@ -98,6 +101,8 @@ const Signup = () => {
   });
 
   // Handle SignUp Functions
+  console.log("value",value)
+
   const handleSignup = async () => {
     const validate = Utility.signupArtistValidation(
       inputsDetails,
@@ -114,7 +119,9 @@ const Signup = () => {
       for (let i of keys) {
         formData.append(i, inputsDetails[i]);
       }
-
+      console.log("value",value)
+      if(value=="artist"){
+      // artist 
       await signupArtistApi(formData)
         .unwrap()
         .then(response => {
@@ -142,6 +149,36 @@ const Signup = () => {
         .catch(error => {
           console.log(error, 'skdjfkdERR');
         });
+      }
+        // store
+      else if(value=="onlineStore"){
+        await signupStoreApi(formData)
+        .unwrap()
+        .then(response => {
+          console.log(response, 'sotere console');
+          if (response?.data) {
+            const userRole = 'store'
+            dispatch(setUserType(userRole));
+            dispatch(setToken(response?.data?.token));
+            dispatch(setUser(response?.data));
+            setDataInLocalStorage(MMKV_KEYS.STORE_TOKEN, response?.data?.token);
+            setDataInLocalStorage(MMKV_KEYS.USER_DATA, response?.data);
+            navigation.navigate(strings.locationscreen);
+            AppToast({
+              type: 'success',
+              message: 'Store Registered Sucessfully',
+            });
+          } else {
+            AppToast({
+              type: 'success',
+              message: response?.email,
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error, 'skdjfkdERR');
+        });
+      }
     }
   };
   // Functions

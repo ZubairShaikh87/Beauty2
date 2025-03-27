@@ -21,6 +21,16 @@ const signUpArtist = (body: Object) => {
     // },
   };
 };
+const signUpStore = (body: Object) => {
+  return {
+    url: Endpoints.signUpStore,
+    method: apiMethods.post,
+    body,
+    // headers: {
+    //   'Content-type': 'application/json',
+    // },
+  };
+};
 const login = (body: Object) => {
   return {
     url: Endpoints.login,
@@ -50,6 +60,9 @@ export const AuthApi = baseApi.injectEndpoints({
     signUpArtist: build.mutation({
       query: signUpArtist,
     }),
+    signUpStore: build.mutation({
+      query: signUpStore,
+    }),
     login: build.mutation({
       query: login,
     }),
@@ -64,6 +77,7 @@ export const AuthApi = baseApi.injectEndpoints({
 
 export const {
   useSignUpMutation,
+  useSignUpStoreMutation,
   useSignUpArtistMutation,
   useLoginMutation,
   useUploadArtistDocumentMutation,
