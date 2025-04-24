@@ -38,6 +38,13 @@ const login = (body: Object) => {
     body,
   };
 };
+const googleLogin = (body: Object) => {
+  return {
+    url: Endpoints.googleLogin,
+    method: apiMethods.post,
+    body,
+  };
+};
 const uploadArtistDocument = (body: Object) => {
   return {
     url: Endpoints.documents,
@@ -66,6 +73,9 @@ export const AuthApi = baseApi.injectEndpoints({
     login: build.mutation({
       query: login,
     }),
+    googleLogin: build.mutation({
+      query: googleLogin,
+    }),
     uploadArtistDocument: build.mutation({
       query: uploadArtistDocument,
     }),
@@ -80,6 +90,7 @@ export const {
   useSignUpStoreMutation,
   useSignUpArtistMutation,
   useLoginMutation,
+  useGoogleLoginMutation,
   useUploadArtistDocumentMutation,
   useAddLocationMutation,
 } = AuthApi;
