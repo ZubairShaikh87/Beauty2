@@ -4,9 +4,10 @@ import {Colors} from '../../utils/colors/colors';
 import {SocialButtonPropsTypes} from './types';
 import strings from '../../utils/strings/strings';
 
-const SocialButton: FC<SocialButtonPropsTypes> = ({icon}) => {
+const SocialButton: FC<SocialButtonPropsTypes> = ({icon,onPress}) => {
   return (
     <TouchableOpacity
+    onPress={onPress}
       activeOpacity={strings.buttonopacity}
       style={{
         borderWidth: 1,

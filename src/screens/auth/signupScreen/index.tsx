@@ -17,6 +17,7 @@ import CustomButton from '../../../components/button/CustomButton';
 import {screenWidth} from '../../../utils/dimensions';
 import SocialButton from '../../../components/socialButton/SocialButton';
 import {
+  useGoogleLoginMutation,
   useSignUpArtistMutation,
   useSignUpMutation,
   useSignUpStoreMutation,
@@ -30,17 +31,20 @@ import {setDataInLocalStorage} from '../../../utils/mmkv/MMKV';
 import {changeStack} from '../../../navigators/NavigationService';
 import {MMKV_KEYS} from '../../../constants/MMKV_KEY';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 const Signup = () => {
   const dispatch = useDispatch();
   // API initialization
   const [signupArtistApi, {isLoading}] = useSignUpArtistMutation();
+    const [googleLloginApi,] = useGoogleLoginMutation();
   const [signupStoreApi ] = useSignUpStoreMutation();
   const navigation: any = useNavigation();
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [open, setOpen] = useState(false);
   const [categoryValue, setCategoryValue] = useState(1);
   const [value, setValue] = useState(strings.newyork);
+  const [googleLoginSuccess, setGoogleLoginSuccess] = useState(false);
 
   const [items, setItems] = useState([
     {label: strings.artist, value: 'artist'},
@@ -48,40 +52,40 @@ const Signup = () => {
   ]);
 
   // TESTING Data Enter for now
-  const [inputsDetails, setinputsDetails] = useState({
-    name: 'mehran',
-    phone: '12345678901',
-    email: 'beauty@gmail.com',
-    category: value,
-    address: 'karachi',
-    business_email: 'beauty@gmail.com',
-    business_name: 'beatuy',
-    business_brand: 'brand',
-    services: 'Hair',
-    business_payment_account: 'GB33BUKB20201555555555',
-    password: 'Asdf!123',
-    password_confirmation: 'Asdf!123',
-    gender: 'male',
-    dob: '12-09-2015',
-    image: 'none',
-  });
   // const [inputsDetails, setinputsDetails] = useState({
-  //   name: '',
-  //   phone: '',
-  //   email: '',
-  //   category: categoryValue,
-  //   address: '',
-  //   business_email: '',
-  //   business_name: '',
-  //   business_brand: '',
-  //   services: '',
-  //   business_payment_account: '',
-  //   password: '',
-  //   password_confirmation: '',
-  //   gender: '',
-  //   dob: '',
-  //   image: '',
+  //   name: 'mehran',
+  //   phone: '12345678901',
+  //   email: 'beauty@gmail.com',
+  //   category: value,
+  //   address: 'karachi',
+  //   business_email: 'beauty@gmail.com',
+  //   business_name: 'beatuy',
+  //   business_brand: 'brand',
+  //   services: 'Hair',
+  //   business_payment_account: 'GB33BUKB20201555555555',
+  //   password: 'Asdf!123',
+  //   password_confirmation: 'Asdf!123',
+  //   gender: 'male',
+  //   dob: '12-09-2015',
+  //   image: 'none',
   // });
+  const [inputsDetails, setinputsDetails] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    category: categoryValue,
+    address: '',
+    business_email: '',
+    business_name: '',
+    business_brand: '',
+    services: '',
+    business_payment_account: '',
+    password: '',
+    password_confirmation: '',
+    gender: '',
+    dob: '',
+    image: '',
+  });
   const [errors, setErrors] = useState({
     name: '',
     phone: '',
@@ -181,6 +185,67 @@ const Signup = () => {
       }
     }
   };
+// Google login
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: '476821168024-ak2q019ts9l47qb8jgk2ep1u91e3ncdo.apps.googleusercontent.com',
+      offlineAccess: true,
+    });
+  }, []);
+
+  const handleGoogleSignUp = async (details) => {
+  console.log("googleInfo", details?.data?.idToken);
+  const formdata = new FormData();
+  formdata.append('token', details?.data?.idToken);
+  formdata.append('role', 'artist');
+  
+  await googleLloginApi(formdata)
+    .unwrap()
+    .then(response => {
+      console.log("response google", response);
+      if (response?.success) {
+        // Update inputs with Google data
+        setinputsDetails(prev => ({
+          ...prev,
+          name: response.data.name,
+          email: response.data.email,
+          // Add any other fields you want to auto-fill
+        }));
+        setGoogleLoginSuccess(true);
+        
+        AppToast({
+          type: 'success',
+          message: "Account Created",
+        });
+      }
+    })
+    .catch(errorResponse => {
+      console.log("first", errorResponse);
+      const {data} = errorResponse?.data;
+      const {error} = data;
+      AppToast({type: 'error', message: error});
+    });
+};
+
+     const googleSignUp = async () => {
+        try {
+          await GoogleSignin.hasPlayServices();
+          const userInfo = await GoogleSignin.signIn();
+          console.log('User Info:', userInfo);
+          // setGoogleInfo("userInfo12");
+          handleGoogleSignUp(userInfo);
+        } catch (error) {
+          if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+            console.log('User cancelled the login');
+          } else if (error.code === statusCodes.IN_PROGRESS) {
+            console.log('Sign in is in progress');
+          } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+            console.log('Play services not available');
+          } else {
+            console.log('Some other error:', error);
+          }
+        }
+      };
   // Functions
   const handleInputs = (key: string) => (error: string) => (value: string) => {
     setinputsDetails(prevState => ({...prevState, [key]: value}));
@@ -205,12 +270,14 @@ const Signup = () => {
             text={strings.fillinfo}
           />
           <CustomInput
-            style={{marginVertical: 8}}
-            placeholder={strings.jhon}
-            label={strings.name}
-            onChangeText={handleInputs('name')('')}
-            errorIndicator={errors.name}
-          />
+  style={{marginVertical: 8}}
+  placeholder={strings.jhon}
+  label={strings.name}
+  onChangeText={handleInputs('name')('')}
+  errorIndicator={errors.name}
+  value={inputsDetails.name}
+  editable={!googleLoginSuccess} // Make read-only when Google login succeeds
+/>
           <CustomInput
             style={{marginVertical: 8}}
             placeholder={strings.num}
@@ -219,13 +286,15 @@ const Signup = () => {
             errorIndicator={errors.phone}
           />
           <CustomInput
-            style={{marginVertical: 8}}
-            placeholder={strings.expemail}
-            label={strings.email}
-            onChangeText={handleInputs('email')('')}
-            errorIndicator={errors.email}
-            keyboardType="email-address"
-          />
+  style={{marginVertical: 8}}
+  placeholder={strings.expemail}
+  label={strings.email}
+  onChangeText={handleInputs('email')('')}
+  errorIndicator={errors.email}
+  keyboardType="email-address"
+  value={inputsDetails.email}
+  editable={!googleLoginSuccess} // Make read-only when Google login succeeds
+/>
           <DropDownPicker
             open={open}
             value={value}
@@ -333,19 +402,25 @@ const Signup = () => {
             onPress={() => handleSignup()}
             text={strings.signup}
           />
-          <View style={styles.orsign}>
-            <View style={styles.divider} />
-            <CustomText
-              style={{marginHorizontal: 8}}
-              color={Colors.lightGrey}
-              text={strings?.orsignup}
-            />
-            <View style={styles.divider} />
-          </View>
-          <View style={styles.social}>
-            <SocialButton icon={Images.google} />
-            <SocialButton icon={Images.fb} />
-          </View>
+          {!googleLoginSuccess && (
+  <>
+    <View style={styles.orsign}>
+      <View style={styles.divider} />
+      <CustomText
+        style={{marginHorizontal: 8}}
+        color={Colors.lightGrey}
+        text={strings?.orsignup}
+      />
+      <View style={styles.divider} />
+    </View>
+    <View style={styles.social}>
+      <SocialButton icon={Images.google} onPress={googleSignUp}/>
+      <SocialButton icon={Images.fb} />
+    </View>
+  </>
+)}
+
+
           <TouchableOpacity
             style={styles.alreadyText}
             activeOpacity={strings.buttonopacity}>

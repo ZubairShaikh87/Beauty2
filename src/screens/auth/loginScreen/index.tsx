@@ -16,7 +16,7 @@ import CustomButton from '../../../components/button/CustomButton';
 import SocialButton from '../../../components/socialButton/SocialButton';
 import {Images} from '../../../assets/images';
 import {useNavigation} from '@react-navigation/native';
-import {useLoginMutation} from '../../../Redux/services/auth/AuthApi';
+import {useGoogleLoginMutation, useLoginMutation} from '../../../Redux/services/auth/AuthApi';
 import {setDataInLocalStorage} from '../../../utils/mmkv/MMKV';
 import {MMKV_KEYS} from '../../../constants/MMKV_KEY';
 import AppToast from '../../../components/appToast/AppToast';
@@ -35,6 +35,7 @@ const Login = () => {
   const userType = useSelector(getUserType);
   // API initialization
   const [loginApi, {isLoading}] = useLoginMutation();
+  const [googleInfo, setGoogleInfo] = useState();
   const [inputsDetails, setinputsDetails] = useState({
     email: '',
     password: '',
@@ -43,6 +44,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  
   const handleLogin = async () => {
     const keys = Object.keys(inputsDetails);
     const validate = Utility.loginValidation(inputsDetails, handleErrors);
@@ -110,7 +112,9 @@ const Login = () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      console.log('User Info:', userInfo);
+      // console.log('User Info:', userInfo);
+      // setGoogleInfo("userInfo12");
+      handleGoogleLogin(userInfo);
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         console.log('User cancelled the login');
@@ -172,8 +176,8 @@ const Login = () => {
             <View style={styles.divider} />
           </View>
           <View style={styles.social}>
-          <Button title="Sign in with Google" onPress={signIn} />
-            {/* <SocialButton icon={Images.google} /> */}
+          {/* <Button title="Sign in with Google" onPress={signIn} /> */}
+            <SocialButton icon={Images.google} />
             <SocialButton icon={Images.fb} />
           </View>
           <TouchableOpacity

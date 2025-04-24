@@ -1,3 +1,4 @@
 export interface SocialButtonPropsTypes{
-    icon?:any
+    icon?:any,
+    onPress?: any;
 }

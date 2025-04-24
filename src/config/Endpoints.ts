@@ -54,4 +54,7 @@ export const Endpoints = {
 
   //Category
   listCategory: 'list_category',
+
+  // social login
+  googleLogin: 'google/socialite',
 };
