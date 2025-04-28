@@ -18,6 +18,7 @@ import {screenWidth} from '../../../utils/dimensions';
 import SocialButton from '../../../components/socialButton/SocialButton';
 import {
   useGoogleLoginMutation,
+  useSignUpArtistGoogleMutation,
   useSignUpArtistMutation,
   useSignUpMutation,
   useSignUpStoreMutation,
@@ -37,6 +38,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   // API initialization
   const [signupArtistApi, {isLoading}] = useSignUpArtistMutation();
+  const [signupArtistApiGoogle, {isLoadingg}] = useSignUpArtistGoogleMutation();
     const [googleLloginApi,] = useGoogleLoginMutation();
   const [signupStoreApi ] = useSignUpStoreMutation();
   const navigation: any = useNavigation();
@@ -125,6 +127,38 @@ const Signup = () => {
       }
       console.log("value",value)
       if(value=="artist"){
+        if(googleLoginSuccess){
+          console.log("Update record after google login")
+          await signupArtistApiGoogle(formData)
+        .unwrap()
+        .then(response => {
+          console.log(response, '34343434mkjk3434431');
+          if (response?.data) {
+            const userRole =
+            Number(response?.data?.role) === 0 ? 'user' : 'business';
+            dispatch(setUserType(userRole));
+            dispatch(setToken(response?.data?.token));
+            dispatch(setUser(response?.data));
+            setDataInLocalStorage(MMKV_KEYS.AUTH_TOKEN, response?.data?.token);
+            setDataInLocalStorage(MMKV_KEYS.USER_DATA, response?.data);
+            navigation.navigate(strings.locationscreen);
+            AppToast({
+              type: 'success',
+              message: 'Artist Registered Sucessfully',
+            });
+          } else {
+            AppToast({
+              type: 'success',
+              message: response?.email,
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error, 'skdjfkdERR');
+        });
+        }
+        else {
+          console.log("Update record without google login")
       // artist 
       await signupArtistApi(formData)
         .unwrap()
@@ -153,6 +187,8 @@ const Signup = () => {
         .catch(error => {
           console.log(error, 'skdjfkdERR');
         });
+      }
+
       }
         // store
       else if(value=="onlineStore"){
@@ -212,7 +248,9 @@ const Signup = () => {
           // Add any other fields you want to auto-fill
         }));
         setGoogleLoginSuccess(true);
-        
+        dispatch(setToken(details?.data?.idToken));
+        setDataInLocalStorage(MMKV_KEYS.AUTH_TOKEN, details?.data?.idToken);
+
         AppToast({
           type: 'success',
           message: "Account Created",

@@ -3,6 +3,7 @@ export const Endpoints = {
   login: 'login',
   signUp: 'register_user',
   signUpArtist: 'register_artist',
+  signUpArtistGoogle: 'Social/Profile/Artist',
   signUpStore: 'Store/Role',
   forgotPassword: 'users/forget-password',
   verifyOTP: 'users/otp-verification',
