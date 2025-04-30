@@ -120,7 +120,9 @@ const Signup = () => {
 
     if (validate === true) {
       const keys = Object.keys(inputsDetails);
+      const values = Object.values(inputsDetails);
       console.log(keys, 'KEYSHDHF');
+      console.log(values, 'KEYSHDHFValue');
       const formData = new FormData();
       for (let i of keys) {
         formData.append(i, inputsDetails[i]);
@@ -133,14 +135,10 @@ const Signup = () => {
         .unwrap()
         .then(response => {
           console.log(response, '34343434mkjk3434431');
-          if (response?.data) {
+          if (response) {
             const userRole =
             Number(response?.data?.role) === 0 ? 'user' : 'business';
             dispatch(setUserType(userRole));
-            dispatch(setToken(response?.data?.token));
-            dispatch(setUser(response?.data));
-            setDataInLocalStorage(MMKV_KEYS.AUTH_TOKEN, response?.data?.token);
-            setDataInLocalStorage(MMKV_KEYS.USER_DATA, response?.data);
             navigation.navigate(strings.locationscreen);
             AppToast({
               type: 'success',
@@ -238,7 +236,7 @@ const Signup = () => {
   await googleLloginApi(formdata)
     .unwrap()
     .then(response => {
-      console.log("response google", response);
+      console.log("response google1", response?.data?.token);
       if (response?.success) {
         // Update inputs with Google data
         setinputsDetails(prev => ({
@@ -248,9 +246,8 @@ const Signup = () => {
           // Add any other fields you want to auto-fill
         }));
         setGoogleLoginSuccess(true);
-        dispatch(setToken(details?.data?.idToken));
-        setDataInLocalStorage(MMKV_KEYS.AUTH_TOKEN, details?.data?.idToken);
-
+        dispatch(setToken(response?.data?.token));
+        setDataInLocalStorage(MMKV_KEYS.AUTH_TOKEN, response?.data?.token);
         AppToast({
           type: 'success',
           message: "Account Created",
