@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NAGSH</string>
+    <string name="facebook_app_id">564014656064721</string>
+    <string name="facebook_client_token">498460636325486</string>
+    <string name="fb_login_protocol_scheme">fb564014656064721</string>
+
 </resources>

@@ -33,6 +33,7 @@ import {changeStack} from '../../../navigators/NavigationService';
 import {MMKV_KEYS} from '../../../constants/MMKV_KEY';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -281,6 +282,45 @@ const Signup = () => {
           }
         }
       };
+
+      const handleFacebookLogin = async () => {
+        try {
+          // Attempt login with permissions
+          const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+          
+          if (result.isCancelled) {
+            console.log('Login cancelled');
+            // Handle cancel case
+            return;
+          }
+      
+          // Get the access token
+          const data = await AccessToken.getCurrentAccessToken();
+          
+          if (!data) {
+            throw new Error('Something went wrong obtaining access token');
+          }
+      
+          const accessToken = data.accessToken.toString();
+          console.log('Facebook access token:', accessToken);
+      
+          // Get user info from Graph API
+          const response = await fetch(
+            `https://graph.facebook.com/me?fields=id,name,email,picture.type(large)&access_token=${accessToken}`
+          );
+          const userInfo = await response.json();
+          
+          console.log('User info:', userInfo);
+          
+          // Here you would typically send the token to your backend
+          // or handle the login in your app state
+          // await authenticateWithBackend(accessToken, userInfo);
+      
+        } catch (error) {
+          console.error('Login failed with error:', error);
+          // Handle error
+        }
+      };
   // Functions
   const handleInputs = (key: string) => (error: string) => (value: string) => {
     setinputsDetails(prevState => ({...prevState, [key]: value}));
@@ -450,7 +490,7 @@ const Signup = () => {
     </View>
     <View style={styles.social}>
       <SocialButton icon={Images.google} onPress={googleSignUp}/>
-      <SocialButton icon={Images.fb} />
+      <SocialButton icon={Images.fb} onPress={handleFacebookLogin}/>
     </View>
   </>
 )}
