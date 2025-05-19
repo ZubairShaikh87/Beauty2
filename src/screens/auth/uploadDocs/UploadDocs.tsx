@@ -25,6 +25,8 @@ import {localStorage, setDataInLocalStorage} from '../../../utils/mmkv/MMKV';
 import {setUserType} from '../../../Redux/Reducers/UserTypeSlice';
 import {setToken, setUser} from '../../../Redux/Reducers/UserSlice';
 import {useDispatch} from 'react-redux';
+import {changeStack} from '../../../navigators/NavigationService';
+
 const UploadDocs = () => {
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
@@ -84,8 +86,9 @@ const UploadDocs = () => {
           // dispatch(setUser(null));
           // NOTE:
           // Will be redirect to login once the user(artist) upload the document while completing the signup process.
-          navigation.navigate(strings.loginscreen);
-          AppToast({type: 'success', message: 'Login now'});
+          // navigation.navigate(strings.loginscreen);
+          changeStack('AppStack')
+          AppToast({type: 'success', message: 'Success'});
         })
         .catch(error => {
           AppToast({type: 'error', message: 'Unauthorized access'});

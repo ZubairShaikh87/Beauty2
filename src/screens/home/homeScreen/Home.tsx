@@ -96,6 +96,7 @@ const Home = () => {
       ?.unwrap()
       ?.then(response => {
         GetArtistAvailability();
+        console.log("response?.status",response)
         AppToast({
           type: 'success',
           message: response?.status,

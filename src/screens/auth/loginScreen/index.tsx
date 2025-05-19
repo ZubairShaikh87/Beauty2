@@ -30,6 +30,7 @@ import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-si
 import auth from '@react-native-firebase/auth';
 
 const Login = () => {
+  const [googleLloginApi,] = useGoogleLoginMutation();
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
   const userType = useSelector(getUserType);
@@ -91,6 +92,52 @@ const Login = () => {
     }
     // navigation.navigate(strings.locationscreen);
   };
+
+  const handleGoogleLogin = async (details) => {
+  console.log("googleInfo", details?.data?.idToken);
+  const formdata = new FormData();
+  formdata.append('token', details?.data?.idToken);
+  formdata.append('role', 'artist');
+  
+  await googleLloginApi(formdata)
+    .unwrap()
+    .then(response => {
+      console.log("response google1", response?.data?.token);
+      if (response?.data) {
+            console.log("response?.data?.role",response?.data?.role)
+            const userRole =
+              Number(response?.data?.role) === 0 ? 'user' : 'business';
+            dispatch(setUserType(userRole));
+            dispatch(setToken(response?.data?.token));
+            dispatch(setUser(response?.data));
+            setDataInLocalStorage(MMKV_KEYS.AUTH_TOKEN, response?.data?.token);
+            setDataInLocalStorage(MMKV_KEYS.USER_DATA, response?.data);
+            //NOTE:
+            // Applying these conditions for checking user location and document data (Required Part of APP)
+            console.log(response?.data, 'dskfjsdkjfdksfjskdjf');
+            if (!response?.data?.locationlat && !response?.data?.locationlong) {
+              navigation.navigate(strings.locationscreen);
+            } else if (userRole === 'business') {
+              if (!response?.data?.documents) {
+                navigation.navigate(strings.uploaddocsscreen);
+              } else {
+                changeStack('AppStack');
+              }
+            } else {
+              changeStack('AppStack');
+            }
+            // changeStack('AppStack');
+          }
+    })
+    .catch(errorResponse => {
+      console.log("first", errorResponse);
+      const {data} = errorResponse?.data;
+      const {error} = data;
+      AppToast({type: 'error', message: error});
+    });
+};
+
+
   // Functions
   const handleInputs = (key: string) => (error: string) => (value: string) => {
     setinputsDetails(prevState => ({...prevState, [key]: value}));
@@ -177,7 +224,7 @@ const Login = () => {
           </View>
           <View style={styles.social}>
           {/* <Button title="Sign in with Google" onPress={signIn} /> */}
-            <SocialButton icon={Images.google} />
+            <SocialButton icon={Images.google} onPress={signIn}/>
             <SocialButton icon={Images.fb} />
           </View>
           <TouchableOpacity
